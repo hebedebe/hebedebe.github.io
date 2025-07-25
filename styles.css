@@ -34,8 +34,8 @@ body {
         radial-gradient(circle at 15% 25%, rgba(139, 111, 71, 0.04) 0%, transparent 50%),
         radial-gradient(circle at 85% 75%, rgba(101, 67, 33, 0.03) 0%, transparent 50%),
         linear-gradient(145deg, var(--rust-deep) 0%, transparent 25%, var(--rust-faded) 75%, transparent 100%),
-        url("rust.jpg"),
-        url("rust.jpg");
+        url("background.jpg"),
+        url("background.jpg");
     background-size: auto, auto, auto, 500px 500px, 200px 200px;
     background-position: center, center, center, 0 0, 50px 50px;
     background-blend-mode: overlay, overlay, multiply, normal, normal;
@@ -50,8 +50,8 @@ body::before {
     width: 100%;
     height: 100%;
     background: 
-        url('rust.jpg'),
-        url('rust.jpg'),
+        url('background.jpg'),
+        url('background.jpg'),
         radial-gradient(circle at 25% 15%, var(--rust-accent) 0%, transparent 35%),
         radial-gradient(circle at 75% 85%, var(--rust-light) 0%, transparent 45%),
         radial-gradient(circle at 40% 60%, var(--rust-deep) 0%, transparent 30%),
@@ -59,7 +59,7 @@ body::before {
     background-size: 10px 10px, 20px 20px, auto, auto, auto, auto;
     background-blend-mode: overlay, normal, multiply, multiply, multiply, multiply;
     pointer-events: none;
-    z-index: 1000;
+    z-index: -1;
     opacity: 0.65;
     animation: rustShift 30s linear infinite, rustPulse 50s ease-in-out infinite;
 }
@@ -73,52 +73,15 @@ body::after {
     width: 100%;
     height: 100%;
     background: 
-        url("rust.jpg"),
-        url("rust.jpg"),
+        url("background.jpg"),
+        url("background.jpg"),
         linear-gradient(45deg, transparent 30%, var(--rust-accent) 35%, transparent 70%);
     background-size: 600px 600px, 300px 300px, auto;
     background-blend-mode: normal, overlay, multiply;
     pointer-events: none;
-    z-index: 999;
+    z-index: -1;
     opacity: 0.55;
     animation: rustPulse 60s ease-in-out infinite;
-}
-
-/* Side rust borders with drip effect */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80px;
-    height: 100%;
-    background: 
-        linear-gradient(to right, var(--rust-deep) 0%, var(--rust-dark) 30%, transparent 80%),
-        url("rust.jpg"),
-        url("rust.jpg");
-    background-size: auto, 100px 100px, 50px 200px;
-    background-blend-mode: multiply, normal, overlay;
-    box-shadow: inset 15px 0 25px rgba(0, 0, 0, 0.6);
-    z-index: 998;
-    animation: rustDrip 45s linear infinite;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80px;
-    height: 100%;
-    background: 
-        linear-gradient(to left, var(--rust-deep) 0%, var(--rust-dark) 30%, transparent 80%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23a0522d' fill-opacity='0.6'%3E%3Cpath d='M10,20 Q15,15 20,20 T30,25 Q35,20 40,25 L39,27 Q34,22 29,27 T19,32 Q14,27 9,32 Z M60,70 Q65,65 70,70 T80,75 Q85,70 90,75 L89,77 Q84,72 79,77 T69,82 Q64,77 59,82 Z M20,50 Q25,45 30,50 T40,55 Q45,50 50,55 L49,57 Q44,52 39,57 T29,62 Q24,57 19,62 Z'/%3E%3C/g%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='200' viewBox='0 0 50 200'%3E%3Cg fill='%23693b0e' fill-opacity='0.5'%3E%3Cpath d='M10,20 Q15,25 20,20 T30,10 Q35,15 40,10 L39,15 Q34,20 29,15 T19,5 Q14,10 9,5 Z M20,80 Q25,85 30,80 T40,70 Q45,75 50,70 L49,75 Q44,80 39,75 T29,65 Q24,70 19,65 Z M10,140 Q15,145 20,140 T30,130 Q35,135 40,130 L39,135 Q34,140 29,135 T19,125 Q14,130 9,125 Z'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: auto, 100px 100px, 50px 200px;
-    background-blend-mode: multiply, normal, overlay;
-    box-shadow: inset -15px 0 25px rgba(0, 0, 0, 0.6);
-    z-index: 998;
-    animation: rustDrip 45s linear infinite reverse;
 }
 
 @keyframes rustShift {
@@ -133,11 +96,6 @@ body::after {
 @keyframes rustPulse {
     0%, 100% { opacity: 0.55; }
     50% { opacity: 0.75; }
-}
-
-@keyframes rustDrip {
-    0% { background-position: 0 0, 0 0, 0 0; }
-    100% { background-position: 0 0, 0 0, 0 200px; }
 }
 
 /* Enhanced organic background with parallax effect */
@@ -216,7 +174,7 @@ body::after {
     background: 
         linear-gradient(145deg, #403530 0%, #352b20 25%, #2a1f1a 50%, #2d241a 75%, #383025 100%),
         radial-gradient(circle at 25% 75%, rgba(139, 111, 71, 0.2) 0%, transparent 40%),
-        url("rust.jpg");
+        url("background.jpg");
     position: relative;
     border-radius: 12px;
     border: 6px solid;
@@ -258,7 +216,7 @@ body::after {
     right: 0;
     bottom: 0;
     background: 
-        url("rust.jpg");
+        url("background.jpg");
     border-radius: 12px;
     pointer-events: none;
     opacity: 0.3;
@@ -336,7 +294,7 @@ body::after {
     background: 
         linear-gradient(145deg, #3a2f25 0%, #2d241a 25%, #1f1915 50%, #2a1f1a 75%, #352b20 100%),
         radial-gradient(circle at 30% 30%, rgba(139, 111, 71, 0.3) 0%, transparent 50%),
-        url("rust.jpg");
+        url("background.jpg");
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
@@ -404,20 +362,22 @@ body::after {
 .project-card {
     background: 
         linear-gradient(135deg, #383025 0%, #2d241a 25%, #1f1a15 50%, #252018 75%, #2a251f 100%),
-        radial-gradient(circle at 20% 80%, rgba(139, 111, 71, 0.15) 0%, transparent 40%),
-        url("rust.jpg");
-    padding: 35px;
+        radial-gradient(circle at 20% 80%, rgba(139, 111, 71, 0.15) 0%, transparent 40%);
+    padding: 45px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    border-radius: 8px;
-    border: 4px solid;
-    border-color: #4a3f35 #2a1f1a #1a1510 #383025;
+    border-radius: 12px;
+    border: 8px solid;
+    border-color: #6a5f45 #3a2f25 #2a1f1a #4a3f35;
     box-shadow: 
-        inset 4px 4px 15px rgba(0, 0, 0, 0.8),
-        inset -4px -4px 15px rgba(90, 70, 50, 0.2),
-        inset 0 0 0 2px rgba(139, 111, 71, 0.1),
+        inset 6px 6px 20px rgba(0, 0, 0, 0.8),
+        inset -6px -6px 20px rgba(90, 70, 50, 0.3),
+        inset 0 0 0 3px rgba(139, 111, 71, 0.15),
+        inset 0 0 0 6px rgba(212, 165, 116, 0.08),
         0 15px 30px rgba(0, 0, 0, 0.6),
-        0 5px 10px rgba(0, 0, 0, 0.8);
+        0 5px 10px rgba(0, 0, 0, 0.8),
+        0 0 0 2px rgba(139, 111, 71, 0.4),
+        0 0 0 4px rgba(212, 165, 116, 0.2);
     overflow: hidden;
 }
 
@@ -425,20 +385,22 @@ body::after {
 .project-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
     background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cpattern id='corner-ornate-cards' patternUnits='userSpaceOnUse' width='40' height='40'%3E%3Cpath d='M0,20 Q10.2,9.8 20.1,19.9 T39.8,20.2 M19.9,0.1 Q30.3,9.7 39.9,0.2 M20.1,39.8 Q29.7,30.4 40.1,39.9 M0.2,20.1 Q9.8,29.9 19.8,20.3 M4.9,5.1 L9.8,0.3 L15.2,4.8 L10.1,9.7 Z M34.8,5.2 L30.1,0.1 L25.3,4.9 L29.9,9.8 Z M5.1,34.9 L9.9,39.8 L14.8,35.1 L10.2,30.3 Z M35.2,34.8 L29.8,39.9 L25.1,35.2 L30.1,30.1 Z' stroke='%23d4a574' stroke-width='0.8' fill='%23d4a574' fill-opacity='0.05' opacity='0.25'/%3E%3Cpath d='M12,15 Q16,12 20,16 M28,25 Q32,22 36,26 M8,28 Q12,25 16,29 M32,8 Q36,5 40,9' stroke='%23d4a574' stroke-width='0.4' fill='none' opacity='0.15'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='200' height='200' fill='url(%23corner-ornate-cards)'/%3E%3C/svg%3E"),
         radial-gradient(circle at 15% 25%, rgba(139, 69, 19, 0.4) 0%, transparent 25%),
         radial-gradient(circle at 85% 15%, rgba(160, 82, 45, 0.3) 0%, transparent 20%),
         radial-gradient(circle at 70% 80%, rgba(101, 67, 33, 0.5) 0%, transparent 30%),
         radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.2) 0%, transparent 35%),
-        linear-gradient(135deg, transparent 40%, rgba(90, 70, 50, 0.3) 45%, transparent 50%),
-        url("rust.jpg");
-    border-radius: 8px;
+        linear-gradient(135deg, transparent 40%, rgba(90, 70, 50, 0.3) 45%, transparent 50%);
+    border-radius: 20px;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0.6;
+    z-index: -1;
+    border: 4px solid rgba(212, 165, 116, 0.15);
 }
 
 /* Metal panel grime overlay */
@@ -449,8 +411,7 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-        url("rust.jpg");
+    background: transparent;
     border-radius: 8px;
     pointer-events: none;
     opacity: 0.4;
@@ -459,12 +420,16 @@ body::after {
 .project-card:hover {
     transform: translateY(-3px);
     box-shadow: 
-        inset 4px 4px 15px rgba(0, 0, 0, 0.7),
-        inset -4px -4px 15px rgba(120, 90, 60, 0.3),
-        inset 0 0 0 2px rgba(212, 165, 116, 0.2),
+        inset 6px 6px 20px rgba(0, 0, 0, 0.7),
+        inset -6px -6px 20px rgba(120, 90, 60, 0.4),
+        inset 0 0 0 3px rgba(212, 165, 116, 0.25),
+        inset 0 0 0 6px rgba(212, 165, 116, 0.15),
         0 20px 40px rgba(0, 0, 0, 0.5),
-        0 0 30px rgba(212, 165, 116, 0.15);
-    border-color: #5a4f45 #3a2f25 #2a1f1a #483d33;
+        0 0 30px rgba(212, 165, 116, 0.15),
+        0 0 0 2px rgba(212, 165, 116, 0.6),
+        0 0 0 4px rgba(212, 165, 116, 0.4),
+        0 0 20px rgba(212, 165, 116, 0.3);
+    border-color: #7a6f55 #4a3f35 #3a2f25 #5a4f45;
 }
 
 .project-title {
@@ -582,7 +547,7 @@ body::after {
     padding: 10px 20px;
     background: 
         linear-gradient(135deg, #2a1f1a 0%, #1f1915 100%),
-        url("rust.jpg");
+        url("background.jpg");
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     clip-path: polygon(
         4px 0%, calc(100% - 4px) 0%, 100% 4px,
@@ -618,7 +583,7 @@ body::after {
 .project-link:hover {
     background: 
         linear-gradient(135deg, var(--background-light) 0%, #2a1f1a 100%),
-        url("rust.jpg");
+        url("background.jpg");
     text-shadow: 0 0 10px var(--accent-glow);
     transform: translateY(-2px) scale(1.05);
     box-shadow: 
@@ -634,7 +599,7 @@ body::after {
     background: 
         linear-gradient(145deg, #403530 0%, #352b20 25%, #2a1f1a 50%, #2d241a 75%, #383025 100%),
         radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.2) 0%, transparent 50%),
-        url("rust.jpg");
+        url("background.jpg");
     border-radius: 15px;
     border: 8px solid;
     border-color: #6a5f55 #2a1f1a #1a1510 #504540;
@@ -677,7 +642,7 @@ body::after {
     right: 0;
     bottom: 0;
     background: 
-        url("rust.jpg");
+        url("background.jpg");
     border-radius: 15px;
     pointer-events: none;
     opacity: 0.4;
@@ -768,10 +733,7 @@ body::after {
 /* Physical concrete contact panels */
 .contact-item {
     padding: 28px;
-    background: 
-        linear-gradient(145deg, #453a30 0%, #383025 25%, #2d241a 50%, #352b20 75%, #403530 100%),
-        radial-gradient(circle at 40% 60%, rgba(139, 111, 71, 0.15) 0%, transparent 45%),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Cpath d='M30,50 L40,40 L50,55 L40,65 Z M120,30 L130,20 L140,35 L130,45 Z M200,60 L210,50 L220,65 L210,75 Z M270,25 L280,15 L290,30 L280,40 Z M80,150 L90,140 L100,155 L90,165 Z M180,170 L190,160 L200,175 L190,185 Z M120,250 L130,240 L140,255 L130,265 Z'/%3E%3C/g%3E%3C/svg%3E");
+    background: transparent;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border-radius: 10px;
