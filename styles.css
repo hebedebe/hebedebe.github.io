@@ -120,7 +120,7 @@ body::after {
     }
     2% { 
         transform: translate(1px, 0);
-        filter: hue-rotate(90deg);
+        filter: hue-rotate(5deg);
     }
     4% { 
         transform: translate(-1px, 0);
@@ -128,19 +128,19 @@ body::after {
     }
     15% { 
         transform: translate(0, 1px);
-        filter: hue-rotate(180deg);
+        filter: hue-rotate(8deg);
     }
     25% { 
         transform: translate(-1px, -1px);
-        filter: hue-rotate(270deg);
+        filter: hue-rotate(-5deg);
     }
     35% { 
         transform: translate(1px, 1px);
-        filter: hue-rotate(45deg);
+        filter: hue-rotate(3deg);
     }
     50% { 
         transform: translate(0, -1px);
-        filter: hue-rotate(135deg);
+        filter: hue-rotate(-3deg);
     }
 }
 
@@ -245,19 +245,19 @@ body::after {
     }
     10% {
         opacity: 0.3;
-        filter: hue-rotate(30deg);
+        filter: hue-rotate(2deg);
     }
     50% {
-        filter: hue-rotate(180deg);
+        filter: hue-rotate(5deg);
     }
     90% {
         opacity: 0.1;
-        filter: hue-rotate(330deg);
+        filter: hue-rotate(3deg);
     }
     100% {
         transform: translateY(-10vh) translateX(30px) rotate(180deg);
         opacity: 0;
-        filter: hue-rotate(360deg);
+        filter: hue-rotate(0deg);
     }
 }
 
