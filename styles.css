@@ -1,0 +1,1005 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #d4a574;
+    --secondary-color: #a89080;
+    --background-dark: #1a1a1a;
+    --background-medium: #2a251f;
+    --background-light: #3d2f23;
+    --text-faded: #6b5d4a;
+    --accent-glow: rgba(212, 165, 116, 0.4);
+    --rust-dark: #8b4513;
+    --rust-light: #a0522d;
+    --rust-accent: rgba(139, 69, 19, 0.6);
+    --rust-deep: #693b0e;
+    --rust-faded: #b5651d;
+}
+
+body {
+    font-family: 'Courier Prime', monospace;
+    background: var(--background-dark);
+    color: #d4c5a0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    background-image: 
+        radial-gradient(circle at 15% 25%, rgba(139, 111, 71, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 75%, rgba(101, 67, 33, 0.03) 0%, transparent 50%),
+        linear-gradient(145deg, var(--rust-deep) 0%, transparent 25%, var(--rust-faded) 75%, transparent 100%),
+        url("rust.jpg"),
+        url("rust.jpg");
+    background-size: auto, auto, auto, 500px 500px, 200px 200px;
+    background-position: center, center, center, 0 0, 50px 50px;
+    background-blend-mode: overlay, overlay, multiply, normal, normal;
+}
+
+/* Enhanced rust texture for background */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url('rust.jpg'),
+        url('rust.jpg'),
+        radial-gradient(circle at 25% 15%, var(--rust-accent) 0%, transparent 35%),
+        radial-gradient(circle at 75% 85%, var(--rust-light) 0%, transparent 45%),
+        radial-gradient(circle at 40% 60%, var(--rust-deep) 0%, transparent 30%),
+        linear-gradient(90deg, transparent 20%, var(--rust-faded) 25%, transparent 80%);
+    background-size: 10px 10px, 20px 20px, auto, auto, auto, auto;
+    background-blend-mode: overlay, normal, multiply, multiply, multiply, multiply;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.65;
+    animation: rustShift 30s linear infinite, rustPulse 50s ease-in-out infinite;
+}
+
+/* Rust stains and corrosion patterns */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        url("rust.jpg"),
+        url("rust.jpg"),
+        linear-gradient(45deg, transparent 30%, var(--rust-accent) 35%, transparent 70%);
+    background-size: 600px 600px, 300px 300px, auto;
+    background-blend-mode: normal, overlay, multiply;
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.55;
+    animation: rustPulse 60s ease-in-out infinite;
+}
+
+/* Side rust borders with drip effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: 
+        linear-gradient(to right, var(--rust-deep) 0%, var(--rust-dark) 30%, transparent 80%),
+        url("rust.jpg"),
+        url("rust.jpg");
+    background-size: auto, 100px 100px, 50px 200px;
+    background-blend-mode: multiply, normal, overlay;
+    box-shadow: inset 15px 0 25px rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    animation: rustDrip 45s linear infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: 
+        linear-gradient(to left, var(--rust-deep) 0%, var(--rust-dark) 30%, transparent 80%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23a0522d' fill-opacity='0.6'%3E%3Cpath d='M10,20 Q15,15 20,20 T30,25 Q35,20 40,25 L39,27 Q34,22 29,27 T19,32 Q14,27 9,32 Z M60,70 Q65,65 70,70 T80,75 Q85,70 90,75 L89,77 Q84,72 79,77 T69,82 Q64,77 59,82 Z M20,50 Q25,45 30,50 T40,55 Q45,50 50,55 L49,57 Q44,52 39,57 T29,62 Q24,57 19,62 Z'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='200' viewBox='0 0 50 200'%3E%3Cg fill='%23693b0e' fill-opacity='0.5'%3E%3Cpath d='M10,20 Q15,25 20,20 T30,10 Q35,15 40,10 L39,15 Q34,20 29,15 T19,5 Q14,10 9,5 Z M20,80 Q25,85 30,80 T40,70 Q45,75 50,70 L49,75 Q44,80 39,75 T29,65 Q24,70 19,65 Z M10,140 Q15,145 20,140 T30,130 Q35,135 40,130 L39,135 Q34,140 29,135 T19,125 Q14,130 9,125 Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: auto, 100px 100px, 50px 200px;
+    background-blend-mode: multiply, normal, overlay;
+    box-shadow: inset -15px 0 25px rgba(0, 0, 0, 0.6);
+    z-index: 998;
+    animation: rustDrip 45s linear infinite reverse;
+}
+
+@keyframes rustShift {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-4px, 4px); }
+    40% { transform: translate(3px, -3px); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes rustPulse {
+    0%, 100% { opacity: 0.55; }
+    50% { opacity: 0.75; }
+}
+
+@keyframes rustDrip {
+    0% { background-position: 0 0, 0 0, 0 0; }
+    100% { background-position: 0 0, 0 0, 0 200px; }
+}
+
+/* Enhanced organic background with parallax effect */
+.bg-organic {
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: 
+        radial-gradient(ellipse 500px 250px at 15% 25%, rgba(89, 52, 31, 0.5) 0%, transparent 65%),
+        radial-gradient(ellipse 350px 450px at 85% 75%, rgba(52, 69, 31, 0.4) 0%, transparent 55%),
+        radial-gradient(ellipse 600px 350px at 45% 60%, rgba(69, 31, 52, 0.3) 0%, transparent 75%),
+        radial-gradient(ellipse 400px 200px at 70% 20%, rgba(31, 52, 69, 0.25) 0%, transparent 60%);
+    z-index: -2;
+    filter: blur(2px);
+    animation: organicFloat 30s ease-in-out infinite;
+}
+
+@keyframes organicFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-15px, 10px) scale(1.02); }
+    66% { transform: translate(10px, -15px) scale(0.98); }
+}
+
+/* Floating particles */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: particleFloat 15s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(50px);
+        opacity: 0;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Physical concrete/rusted metal header panel */
+.header {
+    padding: 40px 35px;
+    margin-bottom: 50px;
+    background: 
+        linear-gradient(145deg, #403530 0%, #352b20 25%, #2a1f1a 50%, #2d241a 75%, #383025 100%),
+        radial-gradient(circle at 25% 75%, rgba(139, 111, 71, 0.2) 0%, transparent 40%),
+        url("rust.jpg");
+    position: relative;
+    border-radius: 12px;
+    border: 6px solid;
+    border-color: #5a4f45 #2a1f1a #1a1510 #453a30;
+    box-shadow: 
+        inset 6px 6px 20px rgba(0, 0, 0, 0.8),
+        inset -6px -6px 20px rgba(120, 90, 60, 0.2),
+        inset 0 0 0 3px rgba(139, 111, 71, 0.1),
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+/* Heavy rust and corrosion patterns */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(160, 82, 45, 0.5) 0%, transparent 35%),
+        radial-gradient(circle at 60% 30%, rgba(101, 67, 33, 0.7) 0%, transparent 25%),
+        radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.4) 0%, transparent 45%),
+        linear-gradient(135deg, transparent 30%, rgba(90, 70, 50, 0.4) 35%, transparent 40%),
+        linear-gradient(45deg, transparent 70%, rgba(139, 69, 19, 0.3) 75%, transparent 80%);
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* Deep scratches and wear marks */
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url("rust.jpg");
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+.terminal-prompt {
+    color: var(--text-faded);
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    opacity: 0;
+    animation: typeIn 2s ease-out 0.5s forwards;
+}
+
+@keyframes typeIn {
+    0% { opacity: 0; width: 0; }
+    100% { opacity: 1; width: 100%; }
+}
+
+.name {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 
+        2px 2px 0px #8b6f47,
+        0 0 20px var(--accent-glow),
+        0 0 40px var(--accent-glow);
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(139, 111, 71, 0.8));
+    position: relative;
+    overflow: hidden;
+}
+
+.name::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.subtitle {
+    color: var(--secondary-color);
+    font-size: 16px;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Physical metal navigation buttons */
+.nav {
+    display: flex;
+    gap: 25px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    color: #8a7560;
+    text-decoration: none;
+    padding: 18px 28px;
+    background: 
+        linear-gradient(145deg, #3a2f25 0%, #2d241a 25%, #1f1915 50%, #2a1f1a 75%, #352b20 100%),
+        radial-gradient(circle at 30% 30%, rgba(139, 111, 71, 0.3) 0%, transparent 50%),
+        url("rust.jpg");
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    position: relative;
+    border-radius: 3px;
+    border: 3px solid;
+    border-color: #4a3f35 #2a1f1a #1a1510 #352b20;
+    box-shadow: 
+        inset 2px 2px 8px rgba(0, 0, 0, 0.8),
+        inset -2px -2px 8px rgba(90, 70, 50, 0.3),
+        inset 0 0 0 1px rgba(139, 111, 71, 0.1),
+        0 6px 12px rgba(0, 0, 0, 0.6),
+        0 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Rust and wear patterns */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.4) 0%, transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.3) 0%, transparent 25%),
+        radial-gradient(circle at 60% 60%, rgba(101, 67, 33, 0.5) 0%, transparent 20%),
+        linear-gradient(45deg, transparent 30%, rgba(139, 69, 19, 0.2) 35%, transparent 40%);
+    border-radius: 3px;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+/* Pressed state - button actually depresses */
+.nav-item:active {
+    transform: translateY(2px);
+    box-shadow: 
+        inset 3px 3px 12px rgba(0, 0, 0, 0.9),
+        inset -1px -1px 4px rgba(90, 70, 50, 0.2),
+        0 2px 6px rgba(0, 0, 0, 0.4);
+    border-color: #2a1f1a #4a3f35 #352b20 #1a1510;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: #d4a574;
+    background: 
+        linear-gradient(145deg, #453a30 0%, #382d23 25%, #2a1f1a 50%, #352b20 75%, #403530 100%),
+        radial-gradient(circle at 30% 30%, rgba(212, 165, 116, 0.2) 0%, transparent 50%);
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(212, 165, 116, 0.4);
+    box-shadow: 
+        inset 2px 2px 8px rgba(0, 0, 0, 0.7),
+        inset -2px -2px 8px rgba(120, 90, 60, 0.4),
+        inset 0 0 0 1px rgba(212, 165, 116, 0.2),
+        0 8px 16px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(212, 165, 116, 0.1);
+}
+
+/* Physical concrete/metal project panels */
+.project-card {
+    background: 
+        linear-gradient(135deg, #383025 0%, #2d241a 25%, #1f1a15 50%, #252018 75%, #2a251f 100%),
+        radial-gradient(circle at 20% 80%, rgba(139, 111, 71, 0.15) 0%, transparent 40%),
+        url("rust.jpg");
+    padding: 35px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 8px;
+    border: 4px solid;
+    border-color: #4a3f35 #2a1f1a #1a1510 #383025;
+    box-shadow: 
+        inset 4px 4px 15px rgba(0, 0, 0, 0.8),
+        inset -4px -4px 15px rgba(90, 70, 50, 0.2),
+        inset 0 0 0 2px rgba(139, 111, 71, 0.1),
+        0 15px 30px rgba(0, 0, 0, 0.6),
+        0 5px 10px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* Concrete texture and wear patterns */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(139, 69, 19, 0.4) 0%, transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(160, 82, 45, 0.3) 0%, transparent 20%),
+        radial-gradient(circle at 70% 80%, rgba(101, 67, 33, 0.5) 0%, transparent 30%),
+        radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.2) 0%, transparent 35%),
+        linear-gradient(135deg, transparent 40%, rgba(90, 70, 50, 0.3) 45%, transparent 50%),
+        url("rust.jpg");
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Metal panel grime overlay */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url("rust.jpg");
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        inset 4px 4px 15px rgba(0, 0, 0, 0.7),
+        inset -4px -4px 15px rgba(120, 90, 60, 0.3),
+        inset 0 0 0 2px rgba(212, 165, 116, 0.2),
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(212, 165, 116, 0.15);
+    border-color: #5a4f45 #3a2f25 #2a1f1a #483d33;
+}
+
+.project-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    text-shadow: 
+        1px 1px 0px #8b6f47,
+        0 0 15px var(--accent-glow);
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-title {
+    text-shadow: 
+        1px 1px 0px #8b6f47,
+        0 0 25px var(--accent-glow),
+        0 0 40px var(--accent-glow);
+}
+
+.project-description {
+    color: #b5a594;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 15px;
+    position: relative;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.project-card:hover .project-description {
+    color: #c5b5a4;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* Physical metal tags - like worn labels */
+.tag {
+    background: 
+        linear-gradient(145deg, #453a30 0%, #383025 25%, #2d241a 50%, #352b20 75%, #3a2f25 100%),
+        radial-gradient(circle at 70% 30%, rgba(139, 111, 71, 0.2) 0%, transparent 50%);
+    color: #9d8a73;
+    padding: 8px 16px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    border-radius: 4px;
+    border: 2px solid;
+    border-color: #4a3f35 #2a1f1a #1a1510 #383025;
+    box-shadow: 
+        inset 2px 2px 6px rgba(0, 0, 0, 0.8),
+        inset -1px -1px 4px rgba(90, 70, 50, 0.3),
+        0 3px 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 10;
+    transition: all 0.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+/* Rust spots and wear on tags */
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.6) 0%, transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(160, 82, 45, 0.4) 0%, transparent 25%);
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.tag:hover {
+    color: #d4a574;
+    transform: translateY(-1px);
+    box-shadow: 
+        inset 2px 2px 6px rgba(0, 0, 0, 0.7),
+        inset -1px -1px 4px rgba(120, 90, 60, 0.4),
+        0 5px 10px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(212, 165, 116, 0.2);
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8),
+        0 0 8px rgba(212, 165, 116, 0.3);
+}
+
+.tag:active {
+    transform: translateY(1px);
+    box-shadow: 
+        inset 3px 3px 8px rgba(0, 0, 0, 0.9),
+        inset -1px -1px 2px rgba(90, 70, 50, 0.2),
+        0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 14px;
+    padding: 10px 20px;
+    background: 
+        linear-gradient(135deg, #2a1f1a 0%, #1f1915 100%),
+        url("rust.jpg");
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    clip-path: polygon(
+        4px 0%, calc(100% - 4px) 0%, 100% 4px,
+        100% calc(100% - 4px), calc(100% - 4px) 100%,
+        4px 100%, 0% calc(100% - 4px), 0% 4px
+    );
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.4),
+        0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(212, 165, 116, 0.1);
+    overflow: hidden;
+}
+
+.project-link::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+}
+
+.project-link:hover::before {
+    width: 200px;
+    height: 200px;
+}
+
+.project-link:hover {
+    background: 
+        linear-gradient(135deg, var(--background-light) 0%, #2a1f1a 100%),
+        url("rust.jpg");
+    text-shadow: 0 0 10px var(--accent-glow);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 
+        inset 0 0 25px rgba(212, 165, 116, 0.15),
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        0 0 25px rgba(212, 165, 116, 0.2);
+}
+
+/* Physical concrete bio section - like a weathered monument */
+.bio-section {
+    padding: 45px 40px;
+    margin: 70px 0;
+    background: 
+        linear-gradient(145deg, #403530 0%, #352b20 25%, #2a1f1a 50%, #2d241a 75%, #383025 100%),
+        radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.2) 0%, transparent 50%),
+        url("rust.jpg");
+    border-radius: 15px;
+    border: 8px solid;
+    border-color: #6a5f55 #2a1f1a #1a1510 #504540;
+    box-shadow: 
+        inset 8px 8px 25px rgba(0, 0, 0, 0.8),
+        inset -8px -8px 25px rgba(150, 120, 80, 0.2),
+        inset 0 0 0 4px rgba(139, 111, 71, 0.1),
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 10px 20px rgba(0, 0, 0, 0.8);
+    position: relative;
+}
+
+/* Massive weathering and corrosion */
+.bio-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.7) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(160, 82, 45, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 60% 10%, rgba(101, 67, 33, 0.8) 0%, transparent 35%),
+        radial-gradient(circle at 20% 90%, rgba(139, 111, 71, 0.5) 0%, transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(90, 70, 50, 0.6) 0%, transparent 40%),
+        linear-gradient(135deg, transparent 20%, rgba(139, 69, 19, 0.4) 25%, transparent 30%),
+        linear-gradient(45deg, transparent 60%, rgba(101, 67, 33, 0.5) 65%, transparent 70%);
+    border-radius: 15px;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* Deep cracks and structural damage */
+.bio-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url("rust.jpg");
+    border-radius: 15px;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+/* Add grid system fix */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 35px;
+    margin: 50px 0;
+}
+
+/* Add mechanical click sounds simulation with visual feedback */
+.nav-item, .project-link, .tag, .contact-item {
+    position: relative;
+}
+
+.nav-item:active::after,
+.project-link:active::after,
+.tag:active::after,
+.contact-item:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(212, 165, 116, 0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: clickRipple 0.3s ease-out;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes clickRipple {
+    0% {
+        width: 20px;
+        height: 20px;
+        opacity: 0.8;
+    }
+    100% {
+        width: 60px;
+        height: 60px;
+        opacity: 0;
+    }
+}
+
+/* Enhanced physical shadows for all interactive elements */
+.nav-item,
+.project-card,
+.project-link,
+.tag,
+.contact-item,
+.header,
+.bio-section {
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
+}
+
+.bio-title {
+    color: var(--primary-color);
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-shadow: 
+        1px 1px 0px #8b6f47,
+        0 0 15px var(--accent-glow);
+    position: relative;
+    z-index: 10;
+}
+
+.bio-text {
+    color: #b5a594;
+    line-height: 1.8;
+    font-size: 16px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Enhanced contact grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+}
+
+/* Physical concrete contact panels */
+.contact-item {
+    padding: 28px;
+    background: 
+        linear-gradient(145deg, #453a30 0%, #383025 25%, #2d241a 50%, #352b20 75%, #403530 100%),
+        radial-gradient(circle at 40% 60%, rgba(139, 111, 71, 0.15) 0%, transparent 45%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Cpath d='M30,50 L40,40 L50,55 L40,65 Z M120,30 L130,20 L140,35 L130,45 Z M200,60 L210,50 L220,65 L210,75 Z M270,25 L280,15 L290,30 L280,40 Z M80,150 L90,140 L100,155 L90,165 Z M180,170 L190,160 L200,175 L190,185 Z M120,250 L130,240 L140,255 L130,265 Z'/%3E%3C/g%3E%3C/svg%3E");
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 10px;
+    border: 4px solid;
+    border-color: #5a4f45 #2a1f1a #1a1510 #453a30;
+    box-shadow: 
+        inset 4px 4px 15px rgba(0, 0, 0, 0.8),
+        inset -4px -4px 15px rgba(120, 90, 60, 0.2),
+        inset 0 0 0 2px rgba(139, 111, 71, 0.1),
+        0 12px 25px rgba(0, 0, 0, 0.6),
+        0 4px 8px rgba(0, 0, 0, 0.8);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Heavy concrete texture and staining */
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.5) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(101, 67, 33, 0.6) 0%, transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(160, 82, 45, 0.4) 0%, transparent 30%),
+        linear-gradient(45deg, transparent 50%, rgba(90, 70, 50, 0.4) 55%, transparent 60%);
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Deep wear and grime patterns */
+.contact-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M20,40 Q30,30 40,40 T60,45 Q70,35 80,45 T100,50 Q110,40 120,50 L118,55 Q108,45 98,55 T78,60 Q68,50 58,60 T38,65 Q28,55 18,65 Z M120,120 Q130,110 140,120 T160,125 Q170,115 180,125 L178,130 Q168,120 158,130 T138,135 Q128,125 118,135 Z'/%3E%3C/g%3E%3C/svg%3E");
+    border-radius: 10px;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.contact-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        inset 4px 4px 15px rgba(0, 0, 0, 0.7),
+        inset -4px -4px 15px rgba(150, 120, 80, 0.3),
+        inset 0 0 0 2px rgba(212, 165, 116, 0.2),
+        0 18px 35px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(212, 165, 116, 0.15);
+    border-color: #6a5f55 #3a2f25 #2a1f1a #504540;
+}
+
+.contact-item:active {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 
+        inset 6px 6px 20px rgba(0, 0, 0, 0.9),
+        inset -3px -3px 10px rgba(120, 90, 60, 0.2),
+        0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.contact-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    text-shadow: 0 0 10px var(--accent-glow);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 10;
+}
+
+.contact-link:hover {
+    text-shadow: 
+        0 0 15px var(--accent-glow),
+        0 0 30px var(--accent-glow);
+}
+
+.contact-label {
+    color: var(--secondary-color);
+    font-size: 13px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Enhanced footer */
+.footer {
+    border-top: 2px solid var(--background-light);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-faded);
+    font-size: 14px;
+    margin-top: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    animation: footerGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes footerGlow {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+/* Loading animation */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-dark);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOut 2s ease-out 1s forwards;
+}
+
+.loading-text {
+    color: var(--primary-color);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    text-shadow: 0 0 20px var(--accent-glow);
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .nav {
+        gap: 15px;
+    }
+    
+    .name {
+        font-size: 32px;
+    }
+    
+    .header {
+        padding: 30px 25px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Enhanced animations */
+@keyframes organicGlow {
+    0%, 100% { 
+        text-shadow: 
+            2px 2px 0px #8b6f47,
+            0 0 20px var(--accent-glow),
+            0 0 40px var(--accent-glow);
+    }
+    50% { 
+        text-shadow: 
+            2px 2px 0px #8b6f47,
+            0 0 30px var(--accent-glow),
+            0 0 60px var(--accent-glow);
+    }
+}
+
+.name {
+    animation: organicGlow 6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.015) rotate(0.3deg); }
+}
+
+.project-card {
+    animation: breathe 10s ease-in-out infinite;
+}
+
+.project-card:nth-child(even) {
+    animation-delay: -5s;
+}
+
+.project-card:nth-child(3n) {
+    animation-delay: -2.5s;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--background-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
