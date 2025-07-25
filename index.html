@@ -13,9 +13,19 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary-color: #d4a574;
+            --secondary-color: #a89080;
+            --background-dark: #1a1a1a;
+            --background-medium: #2a251f;
+            --background-light: #3d2f23;
+            --text-faded: #6b5d4a;
+            --accent-glow: rgba(212, 165, 116, 0.4);
+        }
+        
         body {
             font-family: 'Courier Prime', monospace;
-            background: #1a1a1a;
+            background: var(--background-dark);
             color: #d4c5a0;
             min-height: 100vh;
             overflow-x: hidden;
@@ -24,88 +34,142 @@
             image-rendering: crisp-edges;
         }
         
-        /* Heavy dithered grain texture */
+        /* Enhanced animated grain texture */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 120%;
+            height: 120%;
             background: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0 0h1v1H0V0zm2 0h1v1H2V0zm0 2h1v1H2V2zm4 0h1v1H6V2zm0 2h1v1H6V4zm2 0h1v1H8V4zm-2 2h1v1H6V6zm-4 0h1v1H2V6z'/%3E%3C/svg%3E"),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23000000' fill-opacity='0.15' d='M1 1h1v1H1V1zm3 0h1v1H4V1zm3 0h1v1H7V1zm-4 2h1v1H3V3zm3 0h1v1H6V3zm3 0h1v1H9V3zm3 0h1v1h-1V3zm-8 2h1v1H4V5zm3 0h1v1H7V5zm3 0h1v1h-1V5zm-6 2h1v1H4V7zm3 0h1v1H7V7zm3 0h1v1h-1V7zm-4 2h1v1H6V9zm3 0h1v1H9V9zm-6 2h1v1H3v-1zm3 0h1v1H6v-1zm3 0h1v1H9v-1z'/%3E%3C/svg%3E");
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23ffffff' fill-opacity='0.08' d='M0 0h1v1H0V0zm2 0h1v1H2V0zm0 2h1v1H2V2zm4 0h1v1H6V2zm0 2h1v1H6V4zm2 0h1v1H8V4zm-2 2h1v1H6V6zm-4 0h1v1H2V6z'/%3E%3C/svg%3E"),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23000000' fill-opacity='0.12' d='M1 1h1v1H1V1zm3 0h1v1H4V1zm3 0h1v1H7V1zm-4 2h1v1H3V3zm3 0h1v1H6V3zm3 0h1v1H9V3zm3 0h1v1h-1V3zm-8 2h1v1H4V5zm3 0h1v1H7V5zm3 0h1v1h-1V5zm-6 2h1v1H4V7zm3 0h1v1H7V7zm3 0h1v1h-1V7zm-4 2h1v1H6V9zm3 0h1v1H9V9zm-6 2h1v1H3v-1zm3 0h1v1H6v-1zm3 0h1v1H9v-1z'/%3E%3C/svg%3E");
             background-size: 8px 8px, 16px 16px;
             pointer-events: none;
             z-index: 1000;
-            opacity: 0.7;
+            opacity: 0.6;
+            animation: grainShift 20s linear infinite;
         }
         
-        /* Organic blob-like background shapes */
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-2px, 2px); }
+            50% { transform: translate(2px, -1px); }
+            75% { transform: translate(-1px, -2px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        /* Enhanced organic background with parallax effect */
         .bg-organic {
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            width: 120%;
+            height: 120%;
+            background: 
+                radial-gradient(ellipse 500px 250px at 15% 25%, rgba(89, 52, 31, 0.5) 0%, transparent 65%),
+                radial-gradient(ellipse 350px 450px at 85% 75%, rgba(52, 69, 31, 0.4) 0%, transparent 55%),
+                radial-gradient(ellipse 600px 350px at 45% 60%, rgba(69, 31, 52, 0.3) 0%, transparent 75%),
+                radial-gradient(ellipse 400px 200px at 70% 20%, rgba(31, 52, 69, 0.25) 0%, transparent 60%);
+            z-index: -2;
+            filter: blur(2px);
+            animation: organicFloat 30s ease-in-out infinite;
+        }
+        
+        @keyframes organicFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-15px, 10px) scale(1.02); }
+            66% { transform: translate(10px, -15px) scale(0.98); }
+        }
+        
+        /* Floating particles */
+        .particles {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(ellipse 400px 200px at 10% 20%, rgba(89, 52, 31, 0.4) 0%, transparent 60%),
-                radial-gradient(ellipse 300px 400px at 90% 80%, rgba(52, 69, 31, 0.3) 0%, transparent 50%),
-                radial-gradient(ellipse 500px 300px at 50% 50%, rgba(69, 31, 52, 0.2) 0%, transparent 70%);
-            z-index: -2;
-            filter: blur(1px);
+            pointer-events: none;
+            z-index: 1;
         }
         
-        /* Irregular border generator */
-        .rough-border {
-            position: relative;
-        }
-        
-        .rough-border::before {
-            content: '';
+        .particle {
             position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23594a3d' stroke-width='2' d='M2,8 Q8,2 15,3 T28,8 T42,12 Q48,8 55,9 T68,15 T82,18 Q88,12 95,13 T98,20 L98,80 Q95,88 88,87 T75,82 T62,85 Q55,92 48,88 T35,85 T22,88 Q15,95 8,92 T2,80 Z'/%3E%3C/svg%3E");
-            background-size: 100% 100%;
-            z-index: -1;
-            filter: drop-shadow(0 0 3px rgba(89, 74, 61, 0.5));
+            width: 2px;
+            height: 2px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat 15s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(50px);
+                opacity: 0;
+            }
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-        }
-        
-        /* Organic header with rough edges */
-        .header {
-            padding: 30px 25px;
-            margin-bottom: 40px;
-            background: 
-                linear-gradient(135deg, #2a251f 0%, #1f1a15 50%, #2a1f1a 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40z'/%3E%3C/g%3E%3C/svg%3E");
             position: relative;
-            clip-path: polygon(
-                0% 8px, 8px 0%, 
-                calc(25% - 4px) 0%, calc(25% + 4px) 6px,
-                calc(50% - 6px) 4px, calc(50% + 6px) 0%,
-                calc(75% - 3px) 0%, calc(75% + 5px) 8px,
-                calc(100% - 8px) 0%, 100% 12px,
-                100% calc(100% - 12px), calc(100% - 6px) 100%,
-                calc(75% + 4px) 100%, calc(75% - 2px) calc(100% - 8px),
-                calc(50% + 8px) calc(100% - 4px), calc(50% - 4px) 100%,
-                calc(25% + 6px) 100%, calc(25% - 8px) calc(100% - 6px),
-                8px 100%, 0% calc(100% - 8px)
-            );
-            box-shadow: 
-                inset 0 0 30px rgba(0, 0, 0, 0.5),
-                0 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
         
+        /* Physical concrete/rusted metal header panel */
+        .header {
+            padding: 40px 35px;
+            margin-bottom: 50px;
+            background: 
+                linear-gradient(145deg, #403530 0%, #352b20 25%, #2a1f1a 50%, #2d241a 75%, #383025 100%),
+                radial-gradient(circle at 25% 75%, rgba(139, 111, 71, 0.2) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M50,80 L60,70 L70,85 L60,95 Z M150,50 L160,40 L170,55 L160,65 Z M250,75 L260,65 L270,80 L260,90 Z M350,45 L360,35 L370,50 L360,60 Z M100,200 L110,190 L120,205 L110,215 Z M300,220 L310,210 L320,225 L310,235 Z M200,350 L210,340 L220,355 L210,365 Z'/%3E%3C/g%3E%3C/svg%3E");
+            position: relative;
+            border-radius: 12px;
+            border: 6px solid;
+            border-color: #5a4f45 #2a1f1a #1a1510 #453a30;
+            box-shadow: 
+                inset 6px 6px 20px rgba(0, 0, 0, 0.8),
+                inset -6px -6px 20px rgba(120, 90, 60, 0.2),
+                inset 0 0 0 3px rgba(139, 111, 71, 0.1),
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+        
+        /* Heavy rust and corrosion patterns */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(139, 69, 19, 0.6) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(160, 82, 45, 0.5) 0%, transparent 35%),
+                radial-gradient(circle at 60% 30%, rgba(101, 67, 33, 0.7) 0%, transparent 25%),
+                radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.4) 0%, transparent 45%),
+                linear-gradient(135deg, transparent 30%, rgba(90, 70, 50, 0.4) 35%, transparent 40%),
+                linear-gradient(45deg, transparent 70%, rgba(139, 69, 19, 0.3) 75%, transparent 80%);
+            border-radius: 12px;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+        
+        /* Deep scratches and wear marks */
         .header::after {
             content: '';
             position: absolute;
@@ -114,111 +178,190 @@
             right: 0;
             bottom: 0;
             background: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.08' d='M0 0h2v2H0V0zm2 2h2v2H2V2z'/%3E%3C/svg%3E");
-            background-size: 4px 4px;
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200' viewBox='0 0 600 200'%3E%3Cg fill='%23000000' fill-opacity='0.6'%3E%3Cpath d='M0,50 L600,45 L599,47 L1,52 Z M0,120 L600,115 L599,117 L1,122 Z M50,0 L55,200 L53,200 L48,0 Z M250,0 L255,200 L253,200 L248,0 Z M450,0 L455,200 L453,200 L448,0 Z'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 12px;
             pointer-events: none;
+            opacity: 0.3;
         }
         
         .terminal-prompt {
-            color: #6b5d4a;
+            color: var(--text-faded);
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-family: 'JetBrains Mono', monospace;
+            opacity: 0;
+            animation: typeIn 2s ease-out 0.5s forwards;
+        }
+        
+        @keyframes typeIn {
+            0% { opacity: 0; width: 0; }
+            100% { opacity: 1; width: 100%; }
         }
         
         .name {
-            font-size: 36px;
+            font-size: 42px;
             font-weight: 700;
-            color: #d4a574;
+            color: var(--primary-color);
             text-shadow: 
                 2px 2px 0px #8b6f47,
-                0 0 15px rgba(212, 165, 116, 0.4);
-            margin-bottom: 15px;
-            filter: drop-shadow(0 0 8px rgba(139, 111, 71, 0.6));
+                0 0 20px var(--accent-glow),
+                0 0 40px var(--accent-glow);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(139, 111, 71, 0.8));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .name::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
         }
         
         .subtitle {
-            color: #a89080;
+            color: var(--secondary-color);
             font-size: 16px;
             position: relative;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
         }
         
-        /* Organic navigation */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Physical metal navigation buttons */
         .nav {
             display: flex;
-            gap: 15px;
-            margin: 40px 0;
+            gap: 25px;
+            margin: 50px 0;
             flex-wrap: wrap;
         }
         
         .nav-item {
-            color: #a89080;
+            color: #8a7560;
             text-decoration: none;
-            padding: 12px 18px;
+            padding: 18px 28px;
             background: 
-                linear-gradient(135deg, #2a1f1a 0%, #1f1915 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M0 0h16v16H0V0zm16 16h16v16H16V16z'/%3E%3C/svg%3E");
-            transition: all 0.4s ease;
+                linear-gradient(145deg, #3a2f25 0%, #2d241a 25%, #1f1915 50%, #2a1f1a 75%, #352b20 100%),
+                radial-gradient(circle at 30% 30%, rgba(139, 111, 71, 0.3) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M10,10 L12,8 L15,12 L13,14 Z M25,15 L28,13 L31,17 L29,19 Z M45,8 L48,6 L51,10 L49,12 Z M65,12 L68,10 L71,14 L69,16 Z M85,7 L88,5 L91,9 L89,11 Z M15,35 L18,33 L21,37 L19,39 Z M55,42 L58,40 L61,44 L59,46 Z M75,38 L78,36 L81,40 L79,42 Z M35,65 L38,63 L41,67 L39,69 Z M60,72 L63,70 L66,74 L64,76 Z M20,85 L23,83 L26,87 L24,89 Z'/%3E%3C/g%3E%3C/svg%3E");
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 14px;
+            font-size: 13px;
+            font-weight: 600;
             position: relative;
-            clip-path: polygon(
-                4px 0%, calc(100% - 4px) 0%, 100% 4px,
-                100% calc(100% - 4px), calc(100% - 4px) 100%,
-                4px 100%, 0% calc(100% - 4px), 0% 4px
-            );
+            border-radius: 3px;
+            border: 3px solid;
+            border-color: #4a3f35 #2a1f1a #1a1510 #352b20;
             box-shadow: 
-                inset 0 0 20px rgba(0, 0, 0, 0.3),
-                0 4px 8px rgba(0, 0, 0, 0.2);
+                inset 2px 2px 8px rgba(0, 0, 0, 0.8),
+                inset -2px -2px 8px rgba(90, 70, 50, 0.3),
+                inset 0 0 0 1px rgba(139, 111, 71, 0.1),
+                0 6px 12px rgba(0, 0, 0, 0.6),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        /* Rust and wear patterns */
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.4) 0%, transparent 30%),
+                radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.3) 0%, transparent 25%),
+                radial-gradient(circle at 60% 60%, rgba(101, 67, 33, 0.5) 0%, transparent 20%),
+                linear-gradient(45deg, transparent 30%, rgba(139, 69, 19, 0.2) 35%, transparent 40%);
+            border-radius: 3px;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        /* Pressed state - button actually depresses */
+        .nav-item:active {
+            transform: translateY(2px);
+            box-shadow: 
+                inset 3px 3px 12px rgba(0, 0, 0, 0.9),
+                inset -1px -1px 4px rgba(90, 70, 50, 0.2),
+                0 2px 6px rgba(0, 0, 0, 0.4);
+            border-color: #2a1f1a #4a3f35 #352b20 #1a1510;
         }
         
         .nav-item:hover, .nav-item.active {
             color: #d4a574;
             background: 
-                linear-gradient(135deg, #3d2f23 0%, #2a1f1a 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23d4a574' fill-opacity='0.1' d='M0 0h16v16H0V0zm16 16h16v16H16V16z'/%3E%3C/svg%3E");
-            text-shadow: 0 0 8px rgba(212, 165, 116, 0.5);
-            transform: translateY(-2px);
+                linear-gradient(145deg, #453a30 0%, #382d23 25%, #2a1f1a 50%, #352b20 75%, #403530 100%),
+                radial-gradient(circle at 30% 30%, rgba(212, 165, 116, 0.2) 0%, transparent 50%);
+            text-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(212, 165, 116, 0.4);
             box-shadow: 
-                inset 0 0 25px rgba(212, 165, 116, 0.1),
-                0 6px 12px rgba(0, 0, 0, 0.3);
+                inset 2px 2px 8px rgba(0, 0, 0, 0.7),
+                inset -2px -2px 8px rgba(120, 90, 60, 0.4),
+                inset 0 0 0 1px rgba(212, 165, 116, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(212, 165, 116, 0.1);
         }
         
-        /* Organic project cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
+        /* Physical concrete/metal project panels */
         .project-card {
             background: 
-                linear-gradient(135deg, #252018 0%, #1a1610 50%, #1f1a15 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E");
-            padding: 25px;
-            transition: all 0.5s ease;
+                linear-gradient(135deg, #383025 0%, #2d241a 25%, #1f1a15 50%, #252018 75%, #2a251f 100%),
+                radial-gradient(circle at 20% 80%, rgba(139, 111, 71, 0.15) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='%23000000' fill-opacity='0.6'%3E%3Cpath d='M20,30 L25,25 L30,35 L25,40 Z M60,15 L65,10 L70,20 L65,25 Z M100,25 L105,20 L110,30 L105,35 Z M140,10 L145,5 L150,15 L145,20 Z M180,20 L185,15 L190,25 L185,30 Z M40,80 L45,75 L50,85 L45,90 Z M120,90 L125,85 L130,95 L125,100 Z M160,75 L165,70 L170,80 L165,85 Z M80,150 L85,145 L90,155 L85,160 Z M140,160 L145,155 L150,165 L145,170 Z M30,180 L35,175 L40,185 L35,190 Z'/%3E%3C/g%3E%3C/svg%3E");
+            padding: 35px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            clip-path: polygon(
-                0% 6px, 6px 0%, 
-                calc(20% - 3px) 0%, calc(20% + 3px) 4px,
-                calc(40% - 2px) 2px, calc(40% + 4px) 0%,
-                calc(60% - 4px) 0%, calc(60% + 2px) 6px,
-                calc(80% - 1px) 3px, calc(80% + 3px) 0%,
-                calc(100% - 6px) 0%, 100% 8px,
-                100% calc(100% - 8px), calc(100% - 4px) 100%,
-                calc(80% + 2px) 100%, calc(80% - 3px) calc(100% - 5px),
-                calc(60% + 4px) calc(100% - 2px), calc(60% - 2px) 100%,
-                calc(40% + 3px) 100%, calc(40% - 4px) calc(100% - 4px),
-                calc(20% + 1px) calc(100% - 1px), calc(20% - 3px) 100%,
-                6px 100%, 0% calc(100% - 6px)
-            );
+            border-radius: 8px;
+            border: 4px solid;
+            border-color: #4a3f35 #2a1f1a #1a1510 #383025;
             box-shadow: 
-                inset 0 0 40px rgba(0, 0, 0, 0.4),
-                0 8px 20px rgba(0, 0, 0, 0.3);
+                inset 4px 4px 15px rgba(0, 0, 0, 0.8),
+                inset -4px -4px 15px rgba(90, 70, 50, 0.2),
+                inset 0 0 0 2px rgba(139, 111, 71, 0.1),
+                0 15px 30px rgba(0, 0, 0, 0.6),
+                0 5px 10px rgba(0, 0, 0, 0.8);
             overflow: hidden;
         }
         
+        /* Concrete texture and wear patterns */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(139, 69, 19, 0.4) 0%, transparent 25%),
+                radial-gradient(circle at 85% 15%, rgba(160, 82, 45, 0.3) 0%, transparent 20%),
+                radial-gradient(circle at 70% 80%, rgba(101, 67, 33, 0.5) 0%, transparent 30%),
+                radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.2) 0%, transparent 35%),
+                linear-gradient(135deg, transparent 40%, rgba(90, 70, 50, 0.3) 45%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Cg fill='%23000000' fill-opacity='0.2'%3E%3Cpath d='M0,0 L3,2 L1,5 L-2,3 Z M20,10 L23,12 L21,15 L18,13 Z M40,5 L43,7 L41,10 L38,8 Z M60,15 L63,17 L61,20 L58,18 Z M80,8 L83,10 L81,13 L78,11 Z M100,12 L103,14 L101,17 L98,15 Z M120,3 L123,5 L121,8 L118,6 Z M140,18 L143,20 L141,23 L138,21 Z'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        
+        /* Metal panel grime overlay */
         .project-card::after {
             content: '';
             position: absolute;
@@ -227,212 +370,485 @@
             right: 0;
             bottom: 0;
             background: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6'%3E%3Cpath fill='%23ffffff' fill-opacity='0.06' d='M0 0h3v3H0V0zm3 3h3v3H3V3z'/%3E%3C/svg%3E");
-            background-size: 6px 6px;
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='%23000000' fill-opacity='0.3'%3E%3Cpath d='M50,80 Q60,70 70,80 T90,85 Q100,75 110,85 T130,90 Q140,80 150,90 L148,95 Q138,85 128,95 T108,100 Q98,90 88,100 T68,105 Q58,95 48,105 Z M180,120 Q190,110 200,120 T220,125 Q230,115 240,125 L238,130 Q228,120 218,130 T198,135 Q188,125 178,135 Z M120,200 Q130,190 140,200 T160,205 Q170,195 180,205 T200,210 L198,215 Q188,205 178,215 T158,220 Q148,210 138,220 T118,225 Q108,215 98,225 Z'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 8px;
             pointer-events: none;
+            opacity: 0.4;
         }
         
         .project-card:hover {
-            background: 
-                linear-gradient(135deg, #2d231a 0%, #1f1a15 50%, #251f1a 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23d4a574' fill-opacity='0.06'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20zm20 20h20v20H40V40zm20 20h20v20H60V60z'/%3E%3C/g%3E%3C/svg%3E");
-            transform: translateY(-4px) rotate(0.5deg);
+            transform: translateY(-3px);
             box-shadow: 
-                inset 0 0 50px rgba(212, 165, 116, 0.1),
-                0 12px 25px rgba(0, 0, 0, 0.4);
+                inset 4px 4px 15px rgba(0, 0, 0, 0.7),
+                inset -4px -4px 15px rgba(120, 90, 60, 0.3),
+                inset 0 0 0 2px rgba(212, 165, 116, 0.2),
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(212, 165, 116, 0.15);
+            border-color: #5a4f45 #3a2f25 #2a1f1a #483d33;
         }
         
         .project-title {
-            font-size: 19px;
+            font-size: 20px;
             font-weight: 700;
-            color: #d4a574;
-            margin-bottom: 15px;
+            color: var(--primary-color);
+            margin-bottom: 18px;
             text-shadow: 
                 1px 1px 0px #8b6f47,
-                0 0 10px rgba(212, 165, 116, 0.3);
+                0 0 15px var(--accent-glow);
             position: relative;
             z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-title {
+            text-shadow: 
+                1px 1px 0px #8b6f47,
+                0 0 25px var(--accent-glow),
+                0 0 40px var(--accent-glow);
         }
         
         .project-description {
             color: #b5a594;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            line-height: 1.7;
+            margin-bottom: 25px;
             font-size: 15px;
             position: relative;
             z-index: 10;
+            transition: color 0.3s ease;
+        }
+        
+        .project-card:hover .project-description {
+            color: #c5b5a4;
         }
         
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 12px;
+            margin-bottom: 25px;
         }
         
+        /* Physical metal tags - like worn labels */
         .tag {
             background: 
-                linear-gradient(135deg, #3d2f23 0%, #2a1f1a 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23ffffff' fill-opacity='0.08' d='M0 0h8v8H0V0zm8 8h8v8H8V8z'/%3E%3C/svg%3E");
-            color: #a89080;
-            padding: 6px 12px;
-            font-size: 12px;
+                linear-gradient(145deg, #453a30 0%, #383025 25%, #2d241a 50%, #352b20 75%, #3a2f25 100%),
+                radial-gradient(circle at 70% 30%, rgba(139, 111, 71, 0.2) 0%, transparent 50%);
+            color: #9d8a73;
+            padding: 8px 16px;
+            font-size: 11px;
             font-family: 'JetBrains Mono', monospace;
-            clip-path: polygon(
-                3px 0%, calc(100% - 3px) 0%, 100% 3px,
-                100% calc(100% - 3px), calc(100% - 3px) 100%,
-                3px 100%, 0% calc(100% - 3px), 0% 3px
-            );
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            border-radius: 4px;
+            border: 2px solid;
+            border-color: #4a3f35 #2a1f1a #1a1510 #383025;
+            box-shadow: 
+                inset 2px 2px 6px rgba(0, 0, 0, 0.8),
+                inset -1px -1px 4px rgba(90, 70, 50, 0.3),
+                0 3px 6px rgba(0, 0, 0, 0.5);
             position: relative;
             z-index: 10;
+            transition: all 0.2s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+        }
+        
+        /* Rust spots and wear on tags */
+        .tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(139, 69, 19, 0.6) 0%, transparent 30%),
+                radial-gradient(circle at 20% 80%, rgba(160, 82, 45, 0.4) 0%, transparent 25%);
+            border-radius: 4px;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .tag:hover {
+            color: #d4a574;
+            transform: translateY(-1px);
+            box-shadow: 
+                inset 2px 2px 6px rgba(0, 0, 0, 0.7),
+                inset -1px -1px 4px rgba(120, 90, 60, 0.4),
+                0 5px 10px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(212, 165, 116, 0.2);
+            text-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.8),
+                0 0 8px rgba(212, 165, 116, 0.3);
+        }
+        
+        .tag:active {
+            transform: translateY(1px);
+            box-shadow: 
+                inset 3px 3px 8px rgba(0, 0, 0, 0.9),
+                inset -1px -1px 2px rgba(90, 70, 50, 0.2),
+                0 1px 3px rgba(0, 0, 0, 0.4);
         }
         
         .project-links {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             flex-wrap: wrap;
         }
         
         .project-link {
-            color: #d4a574;
+            color: var(--primary-color);
             text-decoration: none;
             font-size: 14px;
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: 
                 linear-gradient(135deg, #2a1f1a 0%, #1f1915 100%),
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' fill-opacity='0.06' d='M0 0h12v12H0V0zm12 12h12v12H12V12z'/%3E%3C/svg%3E");
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             clip-path: polygon(
                 4px 0%, calc(100% - 4px) 0%, 100% 4px,
                 100% calc(100% - 4px), calc(100% - 4px) 100%,
                 4px 100%, 0% calc(100% - 4px), 0% 4px
             );
             box-shadow: 
-                inset 0 0 15px rgba(0, 0, 0, 0.3),
-                0 3px 6px rgba(0, 0, 0, 0.2);
+                inset 0 0 20px rgba(0, 0, 0, 0.4),
+                0 4px 10px rgba(0, 0, 0, 0.2);
             position: relative;
             z-index: 10;
+            border: 1px solid rgba(212, 165, 116, 0.1);
+            overflow: hidden;
+        }
+        
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .project-link:hover::before {
+            width: 200px;
+            height: 200px;
         }
         
         .project-link:hover {
             background: 
-                linear-gradient(135deg, #3d2f23 0%, #2a1f1a 100%),
+                linear-gradient(135deg, var(--background-light) 0%, #2a1f1a 100%),
                 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23d4a574' fill-opacity='0.1' d='M0 0h12v12H0V0zm12 12h12v12H12V12z'/%3E%3C/svg%3E");
-            text-shadow: 0 0 8px rgba(212, 165, 116, 0.5);
-            transform: translateY(-1px);
+            text-shadow: 0 0 10px var(--accent-glow);
+            transform: translateY(-2px) scale(1.05);
             box-shadow: 
-                inset 0 0 20px rgba(212, 165, 116, 0.1),
-                0 5px 10px rgba(0, 0, 0, 0.3);
+                inset 0 0 25px rgba(212, 165, 116, 0.15),
+                0 8px 20px rgba(0, 0, 0, 0.4),
+                0 0 25px rgba(212, 165, 116, 0.2);
         }
         
-        /* Bio section with organic shape */
+        /* Physical concrete bio section - like a weathered monument */
         .bio-section {
-            padding: 35px 30px;
-            margin: 50px 0;
+            padding: 45px 40px;
+            margin: 70px 0;
             background: 
-                linear-gradient(135deg, #2a251f 0%, #1f1a15 50%, #252018 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M0 0h25v25H0V0zm25 25h25v25H25V25zm25 25h25v25H50V50zm25 25h25v25H75V75z'/%3E%3C/g%3E%3C/svg%3E");
-            clip-path: polygon(
-                0% 10px, 10px 0%, 
-                calc(15% - 2px) 0%, calc(15% + 4px) 8px,
-                calc(30% - 6px) 3px, calc(30% + 2px) 0%,
-                calc(45% - 1px) 0%, calc(45% + 5px) 7px,
-                calc(60% - 4px) 2px, calc(60% + 3px) 0%,
-                calc(75% - 2px) 0%, calc(75% + 6px) 9px,
-                calc(90% - 3px) 4px, calc(90% + 2px) 0%,
-                calc(100% - 10px) 0%, 100% 12px,
-                100% calc(100% - 12px), calc(100% - 8px) 100%,
-                calc(90% + 3px) 100%, calc(90% - 4px) calc(100% - 7px),
-                calc(75% + 2px) calc(100% - 3px), calc(75% - 6px) 100%,
-                calc(60% + 4px) 100%, calc(60% - 1px) calc(100% - 8px),
-                calc(45% + 5px) calc(100% - 2px), calc(45% - 3px) 100%,
-                calc(30% + 2px) 100%, calc(30% - 5px) calc(100% - 6px),
-                calc(15% + 4px) calc(100% - 4px), calc(15% - 2px) 100%,
-                10px 100%, 0% calc(100% - 10px)
-            );
+                linear-gradient(145deg, #403530 0%, #352b20 25%, #2a1f1a 50%, #2d241a 75%, #383025 100%),
+                radial-gradient(circle at 30% 70%, rgba(139, 111, 71, 0.2) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500' viewBox='0 0 500 500'%3E%3Cg fill='%23000000' fill-opacity='0.3'%3E%3Cpath d='M50,100 L70,80 L90,105 L70,125 Z M200,60 L220,40 L240,65 L220,85 Z M350,90 L370,70 L390,95 L370,115 Z M450,50 L470,30 L490,55 L470,75 Z M100,250 L120,230 L140,255 L120,275 Z M300,280 L320,260 L340,285 L320,305 Z M150,400 L170,380 L190,405 L170,425 Z M400,420 L420,400 L440,425 L420,445 Z'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 15px;
+            border: 8px solid;
+            border-color: #6a5f55 #2a1f1a #1a1510 #504540;
             box-shadow: 
-                inset 0 0 50px rgba(0, 0, 0, 0.4),
-                0 10px 25px rgba(0, 0, 0, 0.3);
+                inset 8px 8px 25px rgba(0, 0, 0, 0.8),
+                inset -8px -8px 25px rgba(150, 120, 80, 0.2),
+                inset 0 0 0 4px rgba(139, 111, 71, 0.1),
+                0 25px 50px rgba(0, 0, 0, 0.6),
+                0 10px 20px rgba(0, 0, 0, 0.8);
+            position: relative;
+        }
+        
+        /* Massive weathering and corrosion */
+        .bio-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(160, 82, 45, 0.6) 0%, transparent 45%),
+                radial-gradient(circle at 60% 10%, rgba(101, 67, 33, 0.8) 0%, transparent 35%),
+                radial-gradient(circle at 20% 90%, rgba(139, 111, 71, 0.5) 0%, transparent 55%),
+                radial-gradient(circle at 70% 60%, rgba(90, 70, 50, 0.6) 0%, transparent 40%),
+                linear-gradient(135deg, transparent 20%, rgba(139, 69, 19, 0.4) 25%, transparent 30%),
+                linear-gradient(45deg, transparent 60%, rgba(101, 67, 33, 0.5) 65%, transparent 70%);
+            border-radius: 15px;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+        
+        /* Deep cracks and structural damage */
+        .bio-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='300' viewBox='0 0 600 300'%3E%3Cg fill='%23000000' fill-opacity='0.6'%3E%3Cpath d='M0,50 L600,45 L599,47 L1,52 Z M0,120 L600,115 L599,117 L1,122 Z M0,200 L600,195 L599,197 L1,202 Z M50,0 L55,300 L53,300 L48,0 Z M200,0 L205,300 L203,300 L198,0 Z M350,0 L355,300 L353,300 L348,0 Z M500,0 L505,300 L503,300 L498,0 Z'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 15px;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        
+        /* Add grid system fix */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+        
+        /* Add mechanical click sounds simulation with visual feedback */
+        .nav-item, .project-link, .tag, .contact-item {
+            position: relative;
+        }
+        
+        .nav-item:active::after,
+        .project-link:active::after,
+        .tag:active::after,
+        .contact-item:active::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: clickRipple 0.3s ease-out;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        @keyframes clickRipple {
+            0% {
+                width: 20px;
+                height: 20px;
+                opacity: 0.8;
+            }
+            100% {
+                width: 60px;
+                height: 60px;
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced physical shadows for all interactive elements */
+        .nav-item,
+        .project-card,
+        .project-link,
+        .tag,
+        .contact-item,
+        .header,
+        .bio-section {
+            filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.8));
+        }
+        
+        /* Add subtle ambient lighting effects */
+        body {
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(139, 111, 71, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(101, 67, 33, 0.02) 0%, transparent 50%);
         }
         
         .bio-title {
-            color: #d4a574;
-            font-size: 22px;
-            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+            margin-bottom: 25px;
             text-shadow: 
                 1px 1px 0px #8b6f47,
-                0 0 12px rgba(212, 165, 116, 0.3);
+                0 0 15px var(--accent-glow);
+            position: relative;
+            z-index: 10;
         }
         
         .bio-text {
             color: #b5a594;
-            line-height: 1.7;
+            line-height: 1.8;
             font-size: 16px;
+            position: relative;
+            z-index: 10;
         }
         
-        /* Contact grid */
+        /* Enhanced contact grid */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            margin: 40px 0;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
         }
         
+        /* Physical concrete contact panels */
         .contact-item {
-            padding: 20px;
+            padding: 28px;
             background: 
-                linear-gradient(135deg, #252018 0%, #1a1610 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M0 0h20v20H0V0zm20 20h20v20H20V20z'/%3E%3C/svg%3E");
+                linear-gradient(145deg, #453a30 0%, #383025 25%, #2d241a 50%, #352b20 75%, #403530 100%),
+                radial-gradient(circle at 40% 60%, rgba(139, 111, 71, 0.15) 0%, transparent 45%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Cg fill='%23000000' fill-opacity='0.5'%3E%3Cpath d='M30,50 L40,40 L50,55 L40,65 Z M120,30 L130,20 L140,35 L130,45 Z M200,60 L210,50 L220,65 L210,75 Z M270,25 L280,15 L290,30 L280,40 Z M80,150 L90,140 L100,155 L90,165 Z M180,170 L190,160 L200,175 L190,185 Z M120,250 L130,240 L140,255 L130,265 Z'/%3E%3C/g%3E%3C/svg%3E");
             text-align: center;
-            transition: all 0.4s ease;
-            clip-path: polygon(
-                5px 0%, calc(100% - 5px) 0%, 100% 5px,
-                100% calc(100% - 5px), calc(100% - 5px) 100%,
-                5px 100%, 0% calc(100% - 5px), 0% 5px
-            );
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 10px;
+            border: 4px solid;
+            border-color: #5a4f45 #2a1f1a #1a1510 #453a30;
             box-shadow: 
-                inset 0 0 30px rgba(0, 0, 0, 0.3),
-                0 6px 15px rgba(0, 0, 0, 0.2);
+                inset 4px 4px 15px rgba(0, 0, 0, 0.8),
+                inset -4px -4px 15px rgba(120, 90, 60, 0.2),
+                inset 0 0 0 2px rgba(139, 111, 71, 0.1),
+                0 12px 25px rgba(0, 0, 0, 0.6),
+                0 4px 8px rgba(0, 0, 0, 0.8);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        /* Heavy concrete texture and staining */
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.5) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(101, 67, 33, 0.6) 0%, transparent 35%),
+                radial-gradient(circle at 80% 70%, rgba(160, 82, 45, 0.4) 0%, transparent 30%),
+                linear-gradient(45deg, transparent 50%, rgba(90, 70, 50, 0.4) 55%, transparent 60%);
+            border-radius: 10px;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        
+        /* Deep wear and grime patterns */
+        .contact-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='%23000000' fill-opacity='0.4'%3E%3Cpath d='M20,40 Q30,30 40,40 T60,45 Q70,35 80,45 T100,50 Q110,40 120,50 L118,55 Q108,45 98,55 T78,60 Q68,50 58,60 T38,65 Q28,55 18,65 Z M120,120 Q130,110 140,120 T160,125 Q170,115 180,125 L178,130 Q168,120 158,130 T138,135 Q128,125 118,135 Z'/%3E%3C/g%3E%3C/svg%3E");
+            border-radius: 10px;
+            pointer-events: none;
+            opacity: 0.6;
         }
         
         .contact-item:hover {
-            background: 
-                linear-gradient(135deg, #2d231a 0%, #1f1a15 100%),
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath fill='%23d4a574' fill-opacity='0.08' d='M0 0h20v20H0V0zm20 20h20v20H20V20z'/%3E%3C/svg%3E");
-            transform: translateY(-3px) rotate(-0.5deg);
+            transform: translateY(-4px) scale(1.02);
             box-shadow: 
-                inset 0 0 40px rgba(212, 165, 116, 0.1),
-                0 8px 20px rgba(0, 0, 0, 0.3);
+                inset 4px 4px 15px rgba(0, 0, 0, 0.7),
+                inset -4px -4px 15px rgba(150, 120, 80, 0.3),
+                inset 0 0 0 2px rgba(212, 165, 116, 0.2),
+                0 18px 35px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(212, 165, 116, 0.15);
+            border-color: #6a5f55 #3a2f25 #2a1f1a #504540;
+        }
+        
+        .contact-item:active {
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 
+                inset 6px 6px 20px rgba(0, 0, 0, 0.9),
+                inset -3px -3px 10px rgba(120, 90, 60, 0.2),
+                0 6px 15px rgba(0, 0, 0, 0.4);
         }
         
         .contact-link {
-            color: #d4a574;
+            color: var(--primary-color);
             text-decoration: none;
             font-family: 'JetBrains Mono', monospace;
-            text-shadow: 0 0 8px rgba(212, 165, 116, 0.3);
+            text-shadow: 0 0 10px var(--accent-glow);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-link:hover {
+            text-shadow: 
+                0 0 15px var(--accent-glow),
+                0 0 30px var(--accent-glow);
         }
         
         .contact-label {
-            color: #a89080;
+            color: var(--secondary-color);
             font-size: 13px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 10;
         }
         
-        /* Footer */
+        /* Enhanced footer */
         .footer {
-            border-top: 2px solid #3d2f23;
-            padding: 25px 0;
+            border-top: 2px solid var(--background-light);
+            padding: 30px 0;
             text-align: center;
-            color: #6b5d4a;
+            color: var(--text-faded);
             font-size: 14px;
-            margin-top: 60px;
+            margin-top: 80px;
             font-family: 'JetBrains Mono', monospace;
+            position: relative;
         }
         
-        /* Responsive */
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            animation: footerGlow 4s ease-in-out infinite alternate;
+        }
+        
+        @keyframes footerGlow {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.8; }
+        }
+        
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--background-dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeOut 2s ease-out 1s forwards;
+        }
+        
+        .loading-text {
+            color: var(--primary-color);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+        
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; pointer-events: none; }
+        }
+        
+        /* Responsive design */
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -440,60 +856,93 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
             
             .nav {
-                gap: 10px;
+                gap: 15px;
             }
             
             .name {
-                font-size: 28px;
+                font-size: 32px;
             }
             
             .header {
-                padding: 25px 20px;
+                padding: 30px 25px;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
         
-        /* Organic pulsing animation */
-        @keyframes organic-glow {
+        /* Enhanced animations */
+        @keyframes organicGlow {
             0%, 100% { 
                 text-shadow: 
                     2px 2px 0px #8b6f47,
-                    0 0 15px rgba(212, 165, 116, 0.4);
+                    0 0 20px var(--accent-glow),
+                    0 0 40px var(--accent-glow);
             }
             50% { 
                 text-shadow: 
                     2px 2px 0px #8b6f47,
-                    0 0 25px rgba(212, 165, 116, 0.6);
+                    0 0 30px var(--accent-glow),
+                    0 0 60px var(--accent-glow);
             }
         }
         
         .name {
-            animation: organic-glow 6s ease-in-out infinite;
+            animation: organicGlow 6s ease-in-out infinite;
         }
         
-        /* Subtle breathing animation for cards */
         @keyframes breathe {
             0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.01) rotate(0.2deg); }
+            50% { transform: scale(1.015) rotate(0.3deg); }
         }
         
         .project-card {
-            animation: breathe 8s ease-in-out infinite;
+            animation: breathe 10s ease-in-out infinite;
         }
         
         .project-card:nth-child(even) {
-            animation-delay: -4s;
+            animation-delay: -5s;
+        }
+        
+        .project-card:nth-child(3n) {
+            animation-delay: -2.5s;
+        }
+        
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--background-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--background-light);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
         }
     </style>
 </head>
 <body>
+    <div class="loading-overlay">
+        <div class="loading-text">// initializing flesh.interface //</div>
+    </div>
+    
+    <div class="particles" id="particles"></div>
     <div class="bg-organic"></div>
     
     <div class="container">
-        <header class="header rough-border">
-            <div class="terminal-prompt">~$ ./identity.exe --verbose</div>
+        <header class="header">
+            <div class="terminal-prompt">~$ ./identity.exe --verbose --enhanced</div>
             <h1 class="name">hebedebe</h1>
             <p class="subtitle">// flesh.sculptor / dream.architect / void.gardener //</p>
         </header>
@@ -651,10 +1100,35 @@
     </div>
     
     <script>
-        // Organic uptime with decay simulation
+        // Enhanced particle system
+        function initParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                
+                // Vary particle sizes and colors
+                const size = 1 + Math.random() * 3;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                if (Math.random() < 0.3) {
+                    particle.style.background = '#a89080';
+                }
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Enhanced uptime with more organic decay simulation
         function updateUptime() {
             const startTime = Date.now();
-            const decayWords = ['corrupting', 'dissolving', 'mutating', 'festering', 'pulsing', 'breathing'];
+            const decayWords = ['corrupting', 'dissolving', 'mutating', 'festering', 'pulsing', 'breathing', 'consuming', 'evolving'];
             
             setInterval(() => {
                 const elapsed = Date.now() - startTime;
@@ -669,7 +1143,7 @@
             }, 1000);
         }
         
-        // Navigation with organic transitions
+        // Enhanced navigation with smooth scrolling
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -677,95 +1151,170 @@
                 item.classList.add('active');
                 
                 const target = item.getAttribute('href').substring(1);
-                if (target === 'projects') {
-                    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-                } else if (target === 'bio') {
-                    document.getElementById('bio').scrollIntoView({ behavior: 'smooth' });
-                } else if (target === 'contact') {
-                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                const element = document.getElementById(target);
+                if (element) {
+                    element.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
         
-        // Organic glitch effects - more biological
-        function addOrganicGlitches() {
+        // Enhanced organic glitch effects
+        function addEnhancedGlitches() {
             const elements = document.querySelectorAll('.project-title, .bio-title, .name');
             
             setInterval(() => {
                 const randomElement = elements[Math.floor(Math.random() * elements.length)];
                 const originalText = randomElement.textContent;
                 
-                // Brief organic corruption
-                randomElement.style.filter = 'hue-rotate(90deg) saturate(3) brightness(1.5)';
-                randomElement.style.transform = 'scale(1.02) skew(1deg)';
+                // Enhanced organic corruption
+                randomElement.style.filter = 'hue-rotate(90deg) saturate(2) brightness(1.3) contrast(1.2)';
+                randomElement.style.transform = 'scale(1.03) skew(1.5deg) translateY(-1px)';
+                randomElement.style.textShadow = '0 0 20px rgba(212, 165, 116, 0.8), 0 0 40px rgba(212, 165, 116, 0.4)';
                 
-                // Sometimes corrupt the text briefly
-                if (Math.random() < 0.3) {
+                // More frequent text corruption
+                if (Math.random() < 0.4) {
+                    const corruptChars = ['█', '▓', '▒', '░', '▄', '▀', '◄', '►', '▲', '▼'];
                     const corruptedText = originalText.replace(/[aeiou]/g, () => 
-                        Math.random() < 0.5 ? '█' : '▓'
+                        Math.random() < 0.6 ? corruptChars[Math.floor(Math.random() * corruptChars.length)] : originalText[Math.floor(Math.random() * originalText.length)]
                     );
                     randomElement.textContent = corruptedText;
                     
                     setTimeout(() => {
                         randomElement.textContent = originalText;
-                    }, 150);
+                    }, 120);
                 }
                 
                 setTimeout(() => {
                     randomElement.style.filter = 'none';
                     randomElement.style.transform = 'none';
-                }, 200);
+                    randomElement.style.textShadow = '';
+                }, 250);
                 
-            }, 8000 + Math.random() * 15000);
+            }, 6000 + Math.random() * 12000);
         }
         
-        // Organic pulsing for project cards
-        function addCardPulsing() {
+        // Enhanced card pulsing with mouse interaction
+        function addEnhancedCardEffects() {
             const cards = document.querySelectorAll('.project-card');
             
             cards.forEach((card, index) => {
+                // Organic pulsing
                 setInterval(() => {
+                    const intensity = 40 + Math.sin(Date.now() * 0.003 + index) * 15;
+                    const shadowY = 8 + Math.sin(Date.now() * 0.002 + index) * 6;
+                    
                     card.style.boxShadow = `
-                        inset 0 0 ${40 + Math.sin(Date.now() * 0.003 + index) * 10}px rgba(0, 0, 0, 0.4),
-                        0 ${8 + Math.sin(Date.now() * 0.002 + index) * 4}px 20px rgba(0, 0, 0, 0.3)
+                        inset 0 0 ${intensity}px rgba(0, 0, 0, 0.5),
+                        0 ${shadowY}px 20px rgba(0, 0, 0, 0.3)
                     `;
                 }, 50);
+                
+                // Mouse follow effect
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    card.style.transform = `
+                        translateY(-8px) 
+                        rotateX(${rotateX}deg) 
+                        rotateY(${rotateY}deg) 
+                        scale(1.02)
+                    `;
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                });
             });
         }
         
-        // Random bio-corruption text effects
-        function addTextCorruption() {
+        // Enhanced bio text corruption
+        function addEnhancedTextCorruption() {
             const bioText = document.querySelector('.bio-text');
             const originalText = bioText.innerHTML;
             
             setInterval(() => {
-                if (Math.random() < 0.1) {
-                    const corruptChars = ['█', '▓', '▒', '░', '▄', '▀'];
+                if (Math.random() < 0.15) {
+                    const corruptChars = ['█', '▓', '▒', '░', '▄', '▀', '◄', '►', '♦', '♠', '♣', '♥'];
                     let corruptedText = originalText;
                     
-                    // Replace a few random characters
-                    for (let i = 0; i < 3; i++) {
+                    // Replace more characters for heavier corruption
+                    const corruptionLevel = 3 + Math.floor(Math.random() * 5);
+                    for (let i = 0; i < corruptionLevel; i++) {
                         const randomPos = Math.floor(Math.random() * corruptedText.length);
                         const randomChar = corruptChars[Math.floor(Math.random() * corruptChars.length)];
                         corruptedText = corruptedText.substring(0, randomPos) + randomChar + corruptedText.substring(randomPos + 1);
                     }
                     
                     bioText.innerHTML = corruptedText;
+                    bioText.style.filter = 'hue-rotate(45deg) saturate(1.5)';
                     
                     setTimeout(() => {
                         bioText.innerHTML = originalText;
-                    }, 100 + Math.random() * 200);
+                        bioText.style.filter = 'none';
+                    }, 80 + Math.random() * 300);
                 }
-            }, 5000);
+            }, 3000);
         }
         
-        // Initialize all organic effects
+        // Scroll-based parallax effects
+        function initScrollEffects() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                
+                document.querySelector('.bg-organic').style.transform = `translateY(${rate}px)`;
+                
+                // Parallax particles
+                document.querySelectorAll('.particle').forEach((particle, index) => {
+                    const speed = 0.2 + (index % 3) * 0.1;
+                    particle.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        }
+        
+        // Initialize all enhanced effects
         document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
             updateUptime();
-            addOrganicGlitches();
-            addCardPulsing();
-            addTextCorruption();
+            addEnhancedGlitches();
+            addEnhancedCardEffects();
+            addEnhancedTextCorruption();
+            initScrollEffects();
+            
+            // Fade out loading screen
+            setTimeout(() => {
+                document.querySelector('.loading-overlay').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.loading-overlay').style.display = 'none';
+                }, 1000);
+            }, 1500);
         });
+        
+        // Performance optimization for animations
+        let ticking = false;
+        
+        function updateAnimations() {
+            // Batch DOM updates here
+            ticking = false;
+        }
+        
+        function requestAnimationUpdate() {
+            if (!ticking) {
+                requestAnimationFrame(updateAnimations);
+                ticking = true;
+            }
+        }
     </script>
 </body>
 </html>
