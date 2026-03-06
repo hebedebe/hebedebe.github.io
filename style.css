@@ -18,16 +18,16 @@ body {
 }
 
 .main {
-    background-image: url("Textures/328.GIF");
+    background-image: url("Textures/pattern\ 19.jpg");
     width: 60%;
     height: 100vh;
     margin: 0 auto;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .title {
     text-align: center;
-    font-family: Organical;
-    color: white;
+    font-family: Revista;
+    color: rgb(255, 0, 0);
     font-size: 5vw;
 }
