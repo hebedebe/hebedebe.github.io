@@ -1,5 +1,33 @@
+@font-face {
+  font-family: "MagazineLetters";
+  src:  url("Fonts/MagazineLetterByBrntlbrnl-Regular.ttf") format("truetype");
+}
 
+@font-face {
+  font-family: "Revista";
+  src:  url("Fonts/REVISTA.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Organical";
+  src:  url("Fonts/ORGANICAL PERSONAL USE.ttf") format("truetype");
+}
 
 body {
     background-image: url("Textures/BURLOAK.JPG");
+}
+
+.main {
+    background-image: url("Textures/328.GIF");
+    width: 60%;
+    height: 100vh;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.title {
+    text-align: center;
+    font-family: Organical;
+    color: white;
+    font-size: 5vw;
 }
