@@ -15,19 +15,28 @@
 
 body {
     background-image: url("Textures/BURLOAK.JPG");
+    background-attachment: fixed;
 }
 
 .main {
-    background-image: url("Textures/pattern\ 19.jpg");
-    width: 60%;
+    background-image: url("Textures/J5doXe.png");
+    width: 90%;
     height: 100vh;
     margin: 0 auto;
     padding-top: 20px;
+    border-image: url("Textures/pattern\ 19.jpg") 25% repeat;
+}
+.main_outer {
+    background-image: url("Textures/pattern\ 19.jpg");
+    width: 80%;
+    height: 110vh;
+    padding-top: 7vh;
+    margin: 0 auto;
 }
 
 .title {
     text-align: center;
     font-family: Revista;
-    color: rgb(255, 0, 0);
+    color: pink;
     font-size: 5vw;
 }
