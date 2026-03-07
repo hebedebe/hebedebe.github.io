@@ -74,7 +74,7 @@ footer iframe {
 }
 
 .spawned-image {
-    position: absolute;
+    position: fixed;
     width: 300px; /* Adjust size */
     height: auto;
     pointer-events: none; /* Allows clicking through images */
