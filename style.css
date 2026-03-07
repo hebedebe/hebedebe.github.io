@@ -29,7 +29,7 @@ body {
     height: 100vh;
     margin: 0 auto;
     padding-top: 20px;
-    border-image: url("Textures/pattern\ 19.jpg") 25% repeat;
+    border: dotted greenyellow 5px;
 }
 .main_outer {
     background-image: url("Textures/pattern\ 19.jpg");
@@ -37,6 +37,7 @@ body {
     height: 110vh;
     padding-top: 7vh;
     margin: 0 auto;
+    border: solid black 5px;
 }
 
 .main img {
