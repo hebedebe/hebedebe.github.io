@@ -1,8 +1,3 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js';
-
-const scene = new THREE.Scene();
-console.log("Three.js loaded!", THREE);
-
 const glassBreakSound = new Audio('Sounds/glass_break.mp3');
 
 document.addEventListener('click', function(e) {
