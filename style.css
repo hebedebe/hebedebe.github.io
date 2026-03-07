@@ -13,6 +13,11 @@
   src:  url("Fonts/ORGANICAL PERSONAL USE.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Acidic";
+  src:  url("Fonts/Acidic.TTF") format("truetype");
+}
+
 body {
     background-image: url("Textures/BURLOAK.JPG");
     background-attachment: fixed;
@@ -48,24 +53,17 @@ body {
 }
 
 .overlay-image {
-  /* Position the element fixed to the viewport */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0; /* setting all 4 to 0 ensures it covers the full page */
-  
-  /* Add your image as a background */
+  bottom: 0;
   background-image: url("Textures/frame.png");
   background-repeat: no-repeat;
-  background-position: center; /* Center the image */
-  background-size: cover; /* Scale the image to cover the entire container while preserving aspect ratio */
-  
-  /* Set a high z-index to ensure it is above all other content */
+  background-position: center;
+  background-size: cover;
   z-index: 9999;
-  
-  /* Optional: if you want content behind the image to be clickable, add pointer-events: none; */
-  /* pointer-events: none; */
+  pointer-events: none;
 }
 
 
@@ -78,6 +76,12 @@ footer iframe {
     width: 300px; /* Adjust size */
     height: auto;
     pointer-events: none; /* Allows clicking through images */
+    animation: fadeOut 3s forwards;
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    70% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .wavy {
@@ -104,3 +108,49 @@ footer iframe {
         transform: translateY(0px);
     }
 }
+
+  .scene {
+    width: 320px;
+    height: 180px;
+    perspective: 900px;
+    margin: 100px auto;
+  }
+
+  .prism {
+    width: 320px;
+    height: 180px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotateX(-22deg) rotateY(0deg); }
+    to   { transform: rotateX(-22deg) rotateY(360deg); }
+  }
+
+  .face {
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Front & Back: 320x180 (16:9) */
+  .front, .back   { width: 320px; height: 180px; top: 0; left: 0; }
+  .front          { transform: rotateY(  0deg) translateZ(160px); }
+  .back           { transform: rotateY(180deg) translateZ(160px); }
+
+  /* Left & Right: 320x180 (square sides — 320 deep, 180 tall) */
+  .left, .right   { width: 320px; height: 180px; top: 0; left: 0; }
+  .right          { transform: rotateY( 90deg) translateZ(160px); }
+  .left           { transform: rotateY(-90deg) translateZ(160px); }
+
+  /* Top & Bottom: 320x320 (square) */
+  .top, .bottom   { width: 320px; height: 320px; left: 0; top: calc((180px - 320px) / 2); }
+  .top            { transform: rotateX( 90deg) translateZ(90px); }
+  .bottom         { transform: rotateX(-90deg) translateZ(90px); }
