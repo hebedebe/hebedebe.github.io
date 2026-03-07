@@ -72,3 +72,10 @@ body {
 footer iframe {
     display: none;
 }
+
+.spawned-image {
+    position: absolute;
+    width: 300px; /* Adjust size */
+    height: auto;
+    pointer-events: none; /* Allows clicking through images */
+}
