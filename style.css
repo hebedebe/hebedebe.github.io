@@ -47,6 +47,28 @@ body {
     font-size: 5vw;
 }
 
+.overlay-image {
+  /* Position the element fixed to the viewport */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; /* setting all 4 to 0 ensures it covers the full page */
+  
+  /* Add your image as a background */
+  background-image: url("Textures/frame.png");
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  background-size: cover; /* Scale the image to cover the entire container while preserving aspect ratio */
+  
+  /* Set a high z-index to ensure it is above all other content */
+  z-index: 9999;
+  
+  /* Optional: if you want content behind the image to be clickable, add pointer-events: none; */
+  /* pointer-events: none; */
+}
+
+
 footer iframe {
     display: none;
 }

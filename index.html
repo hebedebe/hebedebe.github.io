@@ -22,14 +22,13 @@
             const timestamp = new Date().getTime();
             img.src = img.src.split('?')[0] + '?t=' + timestamp;
         }
-        const audio = new Audio('Sounds/welcome.wav');
-        audio.play().catch(err => console.log('Autoplay blocked:', err));
     </script>
+    <div class="overlay-image"></div>
 </body>
 
 <footer>
     <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A970126888&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/theexpandingearth" title="THE EXPANDING EARTH" target="_blank" style="color: #cccccc; text-decoration: none;">THE EXPANDING EARTH</a> · <a href="https://soundcloud.com/theexpandingearth/desert-sand-feels-warm-at-night-silhouette" title="desert sand feels warm at night - silhouette" target="_blank" style="color: #cccccc; text-decoration: none;">desert sand feels warm at night - silhouette</a></div>
-    <!-- <audio autoplay> -->
-        <!-- <source src="Sounds/welcome.wav" type="audio/wav"> -->
-    <!-- </audio> -->
+    <audio autoplay>
+        <source src="Sounds/Welcome.wav" type="audio/wav">
+    </audio>
 </footer>
