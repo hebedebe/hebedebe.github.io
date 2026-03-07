@@ -21,6 +21,7 @@
 body {
     background-image: url("Textures/BURLOAK.JPG");
     background-attachment: fixed;
+    background-color: black;
 }
 
 .main {
