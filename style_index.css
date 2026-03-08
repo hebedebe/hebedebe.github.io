@@ -9,7 +9,7 @@ body {
 .main {
     background-image: url("Textures/J5doXe.png");
     width: 90%;
-    height: 200vh;
+    height: 300vh;
     margin: 0 auto;
     padding-top: 20px;
     border: dotted greenyellow 5px;
@@ -17,7 +17,7 @@ body {
 .main_outer {
     background-image: url("Textures/pattern\ 19.jpg");
     width: 80%;
-    height: 210vh;
+    height: 310vh;
     padding-top: 7vh;
     margin: 0 auto;
     border: solid black 5px;
