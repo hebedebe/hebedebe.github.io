@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "MagazineLetters";
+  src:  url("Fonts/MagazineLetterByBrntlbrnl-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Revista";
+  src:  url("Fonts/REVISTA.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Organical";
+  src:  url("Fonts/ORGANICAL PERSONAL USE.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Acidic";
+  src:  url("Fonts/Acidic.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: "Mieszkanie9";
+  src:  url("Fonts/mieszkanie9.otf") format("onetype");
+}
