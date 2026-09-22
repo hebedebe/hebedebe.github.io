@@ -12,7 +12,7 @@ body {
     height: 300vh;
     margin: 0 auto;
     padding-top: 20px;
-    border: dotted greenyellow 5px;
+    border: dotted greenyellow 5px
 }
 .main_outer {
     background-image: url("Textures/pattern\ 19.jpg");

@@ -1,13 +1,19 @@
-const glassBreakSound = new Audio('Sounds/glass_break.mp3');
 
+// Force gif to refresh on page reload
+const img = document.querySelector('.main img');
+if (img) {
+    const timestamp = new Date().getTime();
+    img.src = img.src.split('?')[0] + '?t=' + timestamp;
+}
+
+
+// Glass break effect
+const glassBreakSound = new Audio('Sounds/glass_break.mp3');
 document.addEventListener('click', function(e) {
-        // Create the image element
         const img = document.createElement('img');
-        img.src = 'Textures/brokenglass.png'; // Replace with your image URL
+        img.src = 'Textures/brokenglass.png';
         img.className = 'spawned-image';
 
-        // Position the image at the mouse coordinates
-        // Adjust offsets (-25) to center the image on click
         var imgSize = 300;
         var halfSize = imgSize/2;
         img.style.left = (e.clientX - halfSize) + 'px';
