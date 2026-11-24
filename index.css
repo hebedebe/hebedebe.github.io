@@ -1,11 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+:root {
+    padding: 4%;
+}
 
 body {
     background-color: black;
 }
 
-h1 {
+.default-font {
+  font-family: "Atkinson Hyperlegible", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.white {
+    color: white;
+}
+
+.title {
     color: white;
     text-align: center;
-    font-size: 300%;
+}
+
+.subtitle {
+    color: lightgrey;
+    text-align: center;
+}
+
+.paragraph {
+    color: lightgrey;
+}
+
+.flex-container {
+    display: flex;
+}
+.flex-child {
+    flex: 1;
+    border: 2px solid yellow;
+}  
+.flex-child:first-child {
+    margin-right: 10px;
+} 
+
+.flex-child:nth-child{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.flex-child:last-child{
+    margin-left: 10px;
+}
+
+.panel {
+    padding: 10px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.center-contents {
+  justify-content: center;
+  align-items: center;
+}
+
+.blue-hover:hover {
+    color:blue;
+}
+
+.svg-icon {
+    width: 50px;
+    height: auto; 
+    transition: width 0.2s;
+}
+
+.svg-icon:hover{
+    width: 60px;
+}
+
+.hover-text {
+    opacity: 0%;
+    transition: opacity 0.5s;
+}
+
+.hover-text:hover {
+    opacity: 100%;
+}
+
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
