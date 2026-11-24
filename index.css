@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    padding: 4%;
+    /* padding: 4%; */
+    
+    --primary-color: black;
+    --secondary-color: grey;
+    --accent-color: white;
+    --text-colour: rgb(255, 255, 255);
 }
 
 body {
     background-color: black;
+    margin: 0;
 }
 
 .default-font {
@@ -14,12 +20,22 @@ body {
   font-style: normal;
 }
 
+.default-text-colour {
+    color: var(--text-colour);
+}
+
+.default-text {
+    color: var(--text-colour);
+    font-family: "Atkinson Hyperlegible", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .white {
     color: white;
 }
 
-.title {
-    color: white;
+.text-center {
     text-align: center;
 }
 
@@ -37,19 +53,20 @@ body {
 }
 .flex-child {
     flex: 1;
-    border: 2px solid yellow;
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
 }  
 .flex-child:first-child {
-    margin-right: 10px;
+    margin-right: 20px;
 } 
 
 .flex-child:nth-child{
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .flex-child:last-child{
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .panel {
@@ -65,18 +82,21 @@ body {
   align-items: center;
 }
 
-.blue-hover:hover {
-    color:blue;
-}
-
 .svg-icon {
     width: 50px;
     height: auto; 
-    transition: width 0.2s;
 }
 
-.svg-icon:hover{
-    width: 60px;
+.grow-hover {
+    scale: 1;
+    position: relative;
+    z-index: 0;
+    transition: scale 0.2s;
+}
+
+.grow-hover:hover{
+    scale: 1.2;
+    z-index: 10;
 }
 
 .hover-text {
@@ -93,4 +113,108 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.project-panel {
+    background-color: var(--primary-color);
+    overflow: hidden;
+}
+
+.default-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.project-panel-info {
+    /* display: none; */
+    opacity: 0%;
+    transition: opacity 0.2s;
+    background-color: rgba(0.2, 0.2, 0.2, 0.7);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+
+    align-content: center;
+
+    text-align: center;
+}
+
+.project-panel:hover .project-panel-info {
+    /* display: block; */
+    opacity: 100%;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.linkedin-icon{
+    background-color: white;
+    scale: 1;
+    transition: background-color 0.2s, scale 0.2s;
+}
+
+.linkedin-icon:hover {
+    --hover-colour: #0A66C2 ;
+    background-color: var(--hover-colour);
+    scale: 1.2;
+    border-color: var(--hover-colour);
+}
+
+.itch-icon{
+    background-color: white;
+    scale: 1;
+    transition: background-color 0.2s, scale 0.2s;
+}
+
+.itch-icon:hover {
+    --hover-colour: #fa5c5c ;
+    background-color: var(--hover-colour);
+    scale: 1.2;
+    border-color: var(--hover-colour);
+}
+
+.github-icon{
+    background-color: white;
+    scale: 1;
+    transition: background-color 0.2s, scale 0.2s;
+}
+
+.github-icon:hover {
+    --hover-colour: #6E40C9  ;
+    background-color: var(--hover-colour);
+    scale: 1.2;
+    border-color: var(--hover-colour);
+}
+
+.parallax {
+  /* The image used */
+  /* background-image: url("old/Textures/parallax/2.png"); */
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.transparent-bg {
+    background-color: rgba(0.1,0.1,0.1,0.5);
+}
+
+.body-contents {
+    padding: 5%;
+}
+
+.parallax-image {
+    background-repeat: repeat;
 }

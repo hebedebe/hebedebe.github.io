@@ -14,119 +14,249 @@
     <title>Oliver Alcaraz | Game Programmer</title>
   </head>
 
+  
   <body>
     
-
-    <!-- <img src="placeholder.jpg" class="img-fluid"> -->
-    
-    <!-- Title -->
-     <section>
-        <h1 class="default-font title">Oliver Alcaraz</h1>
-        <h3 class="default-font subtitle">Game Programmer</h3>
-        <br>
-        <div style="margin: 0 auto;" class="flex-container center-contents">
-            <a style="margin:0px 10px;" href="https://linkedin.com/in/oliveralcaraz">
-                <img src="svg/linkedin.svg" class="svg-icon img-thumbnail">
-            </a>
-            <a style="margin:0px 10px;" href="https://hebedebe.itch.io">
-                <img src="svg/itch-io.svg" class="svg-icon img-thumbnail">
-            </a>
-            <a style="margin:0px 10px;" href="https://github.com/hebedebe">
-                <img src="svg/github.svg" class="svg-icon img-thumbnail">
-            </a>
+    <!-- Parallax background -->
+    <div id="parallax">
+        <div data-depth="0.2">
+            <img src="old/Textures/parallax/2.png" class="parallax-image">
         </div>
-    </section>
-    <!-- End title -->
-
-    <br><br>
-
-    <!-- About + skill -->
-    <section>
-        <div class="flex-container" style="padding-left: 25%; padding-right: 25%;">
-            <!-- About me -->
-            <div class="flex-child panel">
-                <h3 class="default-font white">About me</h3>
-                <p class="default-font paragraph">
-                    I'm a game programmer based in Sydney.
-                </p>
-            </div>
-            <!-- End about me -->
-
-            <!-- Skills -->
-            <div class="flex-child panel">
-                <h3 class="default-font white">Skills</h3>
-                <ul>
-                    <li class="default-font white">
-                        Unreal Engine 5
-                    </li>
-                    <li class="default-font white">
-                        Godot
-                    </li>
-                    <li class="default-font white">
-                        C++
-                    </li>
-                    <li class="default-font white">
-                        GDScript
-                    </li>
-                </ul>
-                <p class="default-font paragraph">
-
-                </p>
-            </div>
-            <!-- End skills -->
+        <div data-depth="0.6">
+            <img src="old/Textures/parallax/3.png" class="parallax-image">
         </div>
-    </section>
-    <!-- End about + skills -->
+        
+        <!-- Body contents -->
+        <div class="body-contents" data-depth="1.0">
 
-    <br>
+            <!-- Title -->
+            <section>
+                <h1 class="default-text text-center" style="font-size: 70px;">Oliver Alcaraz</h1>
+                <h3 class="default-font subtitle">Game Programmer</h3>
+                <br>
+                <div style="margin: 0 auto;" class="flex-container center-contents">
+                    <a style="margin:0px 10px;" href="https://linkedin.com/in/oliveralcaraz">
+                        <img src="svg/linkedin.svg" class="svg-icon img-thumbnail linkedin-icon default-shadow">
+                    </a>
+                    <a style="margin:0px 10px;" href="https://hebedebe.itch.io">
+                        <img src="svg/itch-io.svg" class="svg-icon img-thumbnail itch-icon default-shadow">
+                    </a>
+                    <a style="margin:0px 10px;" href="https://github.com/hebedebe">
+                        <img src="svg/github.svg" class="svg-icon img-thumbnail github-icon default-shadow">
+                    </a>
+                </div>
+            </section>
+            <!-- End title -->
 
-    <!-- Projects -->
-    <section>
-        <h1 class="default-font white text-center">Projects</h1>
-        <br>
-        <div class="flex-container">
-            <div class="flex-child">
-                <a href="fish_climb/index.html">
-                    <img class="img-fluid" src="old/Textures/game_examples/fish_climb.png"/>
-                </a>
-            </div>
-            <div class="flex-child">
-                <a href="https://hebedebe.itch.io/blackjack-if-it-was-good">
-                    <img class="img-fluid" src="old/Textures/game_examples/blackjack_if_it_was_good.png">
-                </a>
-            </div>
-            <div class="flex-child">
-                <a href="https://hebedebe.itch.io/hello-there-is-a-monster-in-this-forest-and-i-am-afraid-of-it-this-job-fucking-s">
-                    <img class="img-fluid" src="old/Textures/game_examples/hello_there_is_a_monster.png">
-                </a>
-            </div>
+            <br><br>
+
+            <!-- About + skill -->
+            <section>
+                <div class="flex-container" style="padding-left: 25%; padding-right: 25%;">
+                    <!-- About me -->
+                    <div class="flex-child panel default-shadow transparent-bg">
+                        <h3 class="default-text">About me</h3>
+                        <p class="default-font paragraph">
+                            I'm a game programmer based in Sydney.
+                        </p>
+                    </div>
+                    <!-- End about me -->
+
+                    <!-- Skills -->
+                    <div class="flex-child panel default-shadow transparent-bg">
+                        <h3 class="default-text">Skills</h3>
+                        <ul>
+                            <li class="default-font paragraph">
+                                Unreal Engine 5
+                            </li>
+                            <li class="default-font paragraph">
+                                Godot
+                            </li>
+                            <li class="default-font paragraph">
+                                C++
+                            </li>
+                            <li class="default-font paragraph">
+                                GDScript
+                            </li>
+                        </ul>
+                        <p class="default-font paragraph">
+
+                        </p>
+                    </div>
+                    <!-- End skills -->
+                </div>
+            </section>
+            <!-- End about + skills -->
+
+            <br>
+
+            <!-- Projects -->
+            <section>
+                <h1 class="default-text text-center">Projects</h1>
+                <br>
+                <!-- First row -->
+                <div class="flex-container">
+                    <!-- Fish Climb -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="fish_climb/index.html">
+                            <img class="img-fluid" src="old/Textures/game_examples/fish_climb.png"/>
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Fish Climb
+                                </h1>
+                                <p class="default-font paragraph">
+                                    A browser game made in Godot.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End fish climb -->
+
+                    <!-- Blackjack if it was good -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://hebedebe.itch.io/blackjack-if-it-was-good">
+                            <img class="img-fluid" src="old/Textures/game_examples/blackjack_if_it_was_good.png">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Blackjack if it was Good
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End blackjack if it was good -->
+
+                    <!-- Hello there is a monster -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://hebedebe.itch.io/hello-there-is-a-monster-in-this-forest-and-i-am-afraid-of-it-this-job-fucking-s">
+                            <img class="img-fluid" src="old/Textures/game_examples/hello_there_is_a_monster.png">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Hello there is a monster
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End hello there is a monster -->
+                </div>
+                <!-- End first row -->
+
+                <!-- Padding between rows -->
+                <span style="margin: 5px 5px;"></span>
+
+                <!-- Second row -->
+                <div class="flex-container">
+                    <!-- Mycosis Protocol -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://olmentertainment.itch.io/mycosis-protocol">
+                            <img class="img-fluid" src="old/Textures/game_examples/mycosis-protocol.png">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Mycosis Protocol
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End mycosis protocol -->
+
+                    <!-- How 2 Kick -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://olmentertainment.itch.io/how-2-kick">
+                            <img class="img-fluid" src="old/Textures/game_examples/how-2-kick.png">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    How 2 Kick
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End hello there is a monster -->
+                </div>
+                <!-- End second row -->
+
+                <!-- Padding between rows -->
+                <span style="margin: 5px 5px;"></span>
+
+                <!-- Third row -->
+                <div class="flex-container">
+                    <!-- Circuit pustule -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://hebedebe.itch.io/circuit-pustule">
+                            <img class="img-fluid" src="old/Textures/game_examples/circuit_pustule.png">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Circuit Pustule
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End circuit pustule -->
+
+                    <!-- Supreme meat vortex -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://hebedebe.itch.io/supreme_meat_vortex">
+                            <img class="img-fluid" src="old/Textures/game_examples/supreme_meat_vortex.png">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Supreme Meat Vortex
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End supreme meat vortex -->
+
+                    <!-- Wizard game with balls or fish -->
+                    <div class="flex-child grow-hover project-panel default-shadow">
+                        <a href="https://hebedebe.itch.io/wizard-game-with-fish-or-ball">
+                            <img class="img-fluid" src="old/Textures/game_examples/wizard_game_with_balls_or_fish.gif">
+                            <div class="project-panel-info">
+                                <h1 class="default-text">
+                                    Wizard Game with Balls or Fish
+                                </h1>
+                                <p class="default-font paragraph">
+                                    play my dang game
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- End wizard game with balls or fish -->
+                </div>
+                <!-- End third row -->
+            </section>
+            <!-- End projects -->
+
         </div>
-        <span style="margin: 5px 5px;"></span>
-        <div class="flex-container">
-            <div class="flex-child">
-                <a href="https://hebedebe.itch.io/circuit-pustule">
-                    <img class="img-fluid" src="old/Textures/game_examples/circuit_pustule.png">
-                </a>
-            </div>
-            <div class="flex-child">
-                <a href="https://hebedebe.itch.io/supreme_meat_vortex">
-                    <img class="img-fluid" src="old/Textures/game_examples/supreme_meat_vortex.png">
-                </a>
-            </div>
-            <div class="flex-child">
-                <a href="https://hebedebe.itch.io/wizard-game-with-fish-or-ball">
-                    <img class="img-fluid" src="old/Textures/game_examples/wizard_game_with_balls_or_fish.gif">
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- End projects -->
+        <!-- End body contents -->
+
+    </div>
+    <!-- End parallax background -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- Parallax.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    
     <!-- custom js -->
     <script src="index.js"></script>
   </body>
