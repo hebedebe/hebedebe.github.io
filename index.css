@@ -146,8 +146,10 @@ footer {
 
 .project-panel-info {
     /* display: none; */
+    --blur-amount: 0px;
+
     opacity: 0%;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, --blur-amount 0.4s;
     background-color: rgba(0.2, 0.2, 0.2, 0.7);
 
     position: absolute;
@@ -168,6 +170,10 @@ footer {
 .project-panel:hover .project-panel-info {
     /* display: block; */
     opacity: 100%;
+    --blur-amount: 3px;
+
+    backdrop-filter: blur(var(--blur-amount));
+    -webkit-backdrop-filter: blur(var(--blur-amount));
 }
 
 .centered {
@@ -218,6 +224,8 @@ footer {
 
 .transparent-bg {
     background-color: rgba(0.1,0.1,0.1,0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .body-contents {
@@ -229,7 +237,6 @@ footer {
 	min-height: 400px;
 	background: transparent;
 }
-
 
 .parallax-slider {
     image-rendering: pixelated; 
