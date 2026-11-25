@@ -166,12 +166,11 @@ footer {
     text-align: center;
 }
 
-
 .project-panel:hover .project-panel-info {
     /* display: block; */
+    --blur-amount: 2px;
+    
     opacity: 100%;
-    --blur-amount: 3px;
-
     backdrop-filter: blur(var(--blur-amount));
     -webkit-backdrop-filter: blur(var(--blur-amount));
 }
