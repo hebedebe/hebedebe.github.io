@@ -82,6 +82,7 @@ footer {
 
 .panel {
     padding: 10px;
+    padding-bottom: 5px;
 }
 
 .text-center {
@@ -129,6 +130,14 @@ footer {
 .project-panel {
     background-color: var(--primary-color);
     overflow: hidden;
+    scale: 1;
+    z-index: inherit;
+    transition: scale 0.2s;
+}
+
+.project-panel:hover {
+    scale: 1.1;
+    z-index: 10;
 }
 
 .default-shadow {
@@ -148,10 +157,13 @@ footer {
     width: 100%;
     height: 100%;
 
+    padding:10px;
+
     align-content: center;
 
     text-align: center;
 }
+
 
 .project-panel:hover .project-panel-info {
     /* display: block; */
