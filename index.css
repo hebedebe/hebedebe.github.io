@@ -145,7 +145,6 @@ footer {
 }
 
 .project-panel-info {
-    /* display: none; */
     --blur-amount: 0px;
 
     opacity: 0%;
@@ -167,7 +166,6 @@ footer {
 }
 
 .project-panel:hover .project-panel-info {
-    /* display: block; */
     --blur-amount: 2px;
     
     opacity: 100%;
