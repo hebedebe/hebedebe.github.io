@@ -229,3 +229,10 @@ footer {
 	min-height: 400px;
 	background: transparent;
 }
+
+
+.parallax-slider {
+    image-rendering: pixelated; 
+    /* Fallback for older Firefox versions */
+    image-rendering: crisp-edges; 
+}
