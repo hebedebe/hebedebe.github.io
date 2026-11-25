@@ -10,8 +10,19 @@
 }
 
 body {
+    background: black;
+}
+
+main {
     background-color: black;
     margin: 0;
+    background: transparent;
+}
+
+footer {
+    background: black;
+    padding: 10px;
+    /* min-height: 100px; */
 }
 
 .default-font {
@@ -193,28 +204,16 @@ body {
     border-color: var(--hover-colour);
 }
 
-.parallax {
-  /* The image used */
-  /* background-image: url("old/Textures/parallax/2.png"); */
-
-  /* Set a specific height */
-  min-height: 500px;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .transparent-bg {
     background-color: rgba(0.1,0.1,0.1,0.5);
 }
 
 .body-contents {
     padding: 5%;
+    background-color: rgba(0.1, 0.1, 0.1, 0.3);
 }
 
-.parallax-image {
-    background-repeat: repeat;
+.parallax-window {
+	min-height: 400px;
+	background: transparent;
 }
