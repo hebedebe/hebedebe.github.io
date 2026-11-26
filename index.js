@@ -16,12 +16,17 @@ function parallax(layer, path) {
     );
 }
     
-parallax(5, "old/Textures/parallax/city/5.webp")
-parallax(4, "old/Textures/parallax/city/4.webp")
-parallax(3, "old/Textures/parallax/city/3.webp")
-parallax(2, "old/Textures/parallax/city/2.webp")
-parallax(1, "old/Textures/parallax/city/1.webp")
 
+if (typeof screen.orientation !== 'undefined') { 
+    //we are on desktop
+    parallax(5, "old/Textures/parallax/city/5.webp")
+    parallax(4, "old/Textures/parallax/city/4.webp")
+    parallax(3, "old/Textures/parallax/city/3.webp")
+    parallax(2, "old/Textures/parallax/city/2.webp")
+    parallax(1, "old/Textures/parallax/city/1.webp")
 
-
-jQuery(window).trigger('resize').trigger('scroll');
+    jQuery(window).trigger('resize').trigger('scroll');
+} else { 
+    //we are on mobile
+    $('main').style.background = "auto";
+}

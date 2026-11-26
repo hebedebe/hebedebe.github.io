@@ -10,12 +10,13 @@
 }
 
 body {
-    background: black;
+    background: #161613;
 }
 
 main {
     background-color: darkslategrey;
     margin: 0;
+    /* z-index: -2; */
     background: transparent;
 }
 
