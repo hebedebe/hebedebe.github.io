@@ -139,6 +139,9 @@ footer {
 
     min-width: 20em;
 
+    /* width: 347; */
+    /* height: 186; */
+
     scale: 1;
     transition: scale 0.2s;
 }
