@@ -177,13 +177,17 @@ footer {
 }
 
 .project-panel-info.scroll {
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .project-panel:hover .project-panel-info {
     --blur-amount: 0px;
     
     opacity: 100%;
+}
+
+.project-panel:hover .project-panel-info.scroll {
+    overflow-y: auto;
 }
 
 .project-panel:hover .project-panel-info.blur {
