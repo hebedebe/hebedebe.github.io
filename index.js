@@ -1,6 +1,6 @@
 const iosDisabled = true;
-const iosFix = true;
-const androidDisabled = false;
+const iosFix = false;
+const androidDisabled = true;
 const androidFix = false;
 
 function parallax(layer, path) {
