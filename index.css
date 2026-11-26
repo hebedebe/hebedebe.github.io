@@ -176,6 +176,10 @@ footer {
     text-align: center;
 }
 
+.project-panel-info.scroll {
+    overflow-y: auto;
+}
+
 .project-panel:hover .project-panel-info {
     --blur-amount: 0px;
     
