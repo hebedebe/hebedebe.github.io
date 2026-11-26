@@ -61,13 +61,15 @@ footer {
 .flex-container {
     display: flex;
     flex-wrap: wrap;
+    row-gap: 0.625em; 
+    column-gap: 0.625em;
 }
 .flex-child {
     flex: 1;
     border: 0.125em solid var(--accent-color);
     border-radius: 1em;
 }  
-.flex-child:first-child {
+/* .flex-child:first-child {
     margin-right: 1.25em;
 } 
 
@@ -78,7 +80,7 @@ footer {
 
 .flex-child:last-child{
     margin-left: 1.25em;
-}
+} */
 
 .panel {
     padding: 0.625em;
