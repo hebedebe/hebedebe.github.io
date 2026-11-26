@@ -1,7 +1,7 @@
 const iosDisabled = true;
 const iosFix = true;
-const androidDisabled = true;
-const androidFix = true;
+const androidDisabled = false;
+const androidFix = false;
 
 function parallax(layer, path) {
     $('.parallax-window.layer'+layer).parallax(
