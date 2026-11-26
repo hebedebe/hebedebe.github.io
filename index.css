@@ -169,6 +169,12 @@ footer {
 }
 
 .project-panel:hover .project-panel-info {
+    --blur-amount: 0px;
+    
+    opacity: 100%;
+}
+
+.project-panel:hover .project-panel-info.blur {
     --blur-amount: 1px;
     
     opacity: 100%;
