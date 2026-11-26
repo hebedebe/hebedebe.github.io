@@ -21,8 +21,8 @@ main {
 
 footer {
     background: rgb(20, 20, 20);
-    padding: 10px;
-    /* min-height: 100px; */
+    padding: 0.625em;
+    /* min-height: 100em; */
 }
 
 .default-font {
@@ -64,25 +64,25 @@ footer {
 }
 .flex-child {
     flex: 1;
-    border: 2px solid var(--accent-color);
-    border-radius: 16px;
+    border: 0.125em solid var(--accent-color);
+    border-radius: 1em;
 }  
 .flex-child:first-child {
-    margin-right: 20px;
+    margin-right: 1.25em;
 } 
 
 .flex-child:nth-child{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 1.25em;
+    margin-right: 1.25em;
 }
 
 .flex-child:last-child{
-    margin-left: 20px;
+    margin-left: 1.25em;
 }
 
 .panel {
-    padding: 10px;
-    padding-bottom: 5px;
+    padding: 0.625em;
+    padding-bottom: 0.3125em;
 }
 
 .text-center {
@@ -95,7 +95,7 @@ footer {
 }
 
 .svg-icon {
-    width: 50px;
+    width: 3.125em;
     height: auto; 
 }
 
@@ -141,7 +141,7 @@ footer {
 }
 
 .default-shadow {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.5);
 }
 
 .project-panel-info {
@@ -161,7 +161,7 @@ footer {
     width: 100%;
     height: 100%;
 
-    padding:10px;
+    padding:0.625em;
 
     align-content: center;
 
@@ -169,7 +169,7 @@ footer {
 }
 
 .project-panel:hover .project-panel-info {
-    --blur-amount: 2px;
+    --blur-amount: 1px;
     
     opacity: 100%;
     backdrop-filter: blur(var(--blur-amount));
@@ -224,8 +224,9 @@ footer {
 
 .transparent-bg {
     background-color: rgba(0.1,0.1,0.1,0.5);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    will-change: scroll-position;
 }
 
 .body-contents {
@@ -234,7 +235,7 @@ footer {
 }
 
 .parallax-window {
-	min-height: 400px;
+	min-height: 25em;
 	background: transparent;
 }
 
