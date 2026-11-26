@@ -133,8 +133,11 @@ footer {
 .project-panel {
     background-color: var(--primary-color);
     overflow: hidden;
-    scale: 1;
     z-index: inherit;
+
+    min-width: 20em;
+
+    scale: 1;
     transition: scale 0.2s;
 }
 
