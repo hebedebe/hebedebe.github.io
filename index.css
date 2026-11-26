@@ -250,3 +250,14 @@ footer {
     /* Fallback for older Firefox versions */
     image-rendering: crisp-edges; 
 }
+
+.load-fade {
+    animation: fade 2s linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+    0% { opacity: 1 }
+    20% { opacity: 1 }
+    100% { opacity: 0}
+}
