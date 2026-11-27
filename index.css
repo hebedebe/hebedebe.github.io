@@ -11,11 +11,14 @@
 
 body {
     background: darkslategrey;
+    margin:0;
+    padding:0;
 }
 
 main {
     background-color: darkslategrey;
     margin: 0;
+    padding:0;
     /* z-index: -2; */
     background: transparent;
 }
@@ -209,6 +212,20 @@ footer {
     -webkit-backdrop-filter: blur(var(--blur-amount));
 }
 
+.img-fluid{
+    max-width:100%;
+    height:auto
+}
+
+.img-thumbnail{
+    padding:.25rem;
+    background-color:#fff;
+    border:1px solid #dee2e6;
+    border-radius:.25rem;
+    max-width:100%;
+    height:auto;
+}
+
 .centered {
   position: absolute;
   top: 50%;
@@ -274,7 +291,7 @@ footer {
 }
 
 .parallax-window {
-	min-height: 25em;
+	/* min-height: 25em; */
 	background: transparent;
 }
 
@@ -293,4 +310,18 @@ footer {
     0% { opacity: 1 }
     20% { opacity: 1 }
     100% { opacity: 0}
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color:salmon;
 }
