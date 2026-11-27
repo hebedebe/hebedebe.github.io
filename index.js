@@ -19,11 +19,11 @@ function parallax(layer, path) {
 
 if (typeof screen.orientation !== 'undefined') { 
     //we are on desktop
-    parallax(5, "old/Textures/parallax/city/5.webp")
-    parallax(4, "old/Textures/parallax/city/4.webp")
-    parallax(3, "old/Textures/parallax/city/3.webp")
-    parallax(2, "old/Textures/parallax/city/2.webp")
-    parallax(1, "old/Textures/parallax/city/1.webp")
+    parallax(5, "textures/parallax/city/5.webp")
+    parallax(4, "textures/parallax/city/4.webp")
+    parallax(3, "textures/parallax/city/3.webp")
+    parallax(2, "textures/parallax/city/2.webp")
+    parallax(1, "textures/parallax/city/1.webp")
     jQuery(window).trigger('resize').trigger('scroll');
 } else { 
     //we are on mobile
