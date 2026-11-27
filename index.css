@@ -220,6 +220,8 @@ footer {
     background-color: white;
     scale: 1;
     transition: background-color 0.2s, scale 0.2s;
+    width: 3.25em;
+    height: 3.25em;
 }
 
 .linkedin-icon:hover {
@@ -233,6 +235,8 @@ footer {
     background-color: white;
     scale: 1;
     transition: background-color 0.2s, scale 0.2s;
+    width: 3.25em;
+    height: 3.25em;
 }
 
 .itch-icon:hover {
@@ -246,6 +250,8 @@ footer {
     background-color: white;
     scale: 1;
     transition: background-color 0.2s, scale 0.2s;
+    width: 3.25em;
+    height: 3.25em;
 }
 
 .github-icon:hover {
