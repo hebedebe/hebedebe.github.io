@@ -24,12 +24,9 @@ if (typeof screen.orientation !== 'undefined') {
     parallax(3, "old/Textures/parallax/city/3.webp")
     parallax(2, "old/Textures/parallax/city/2.webp")
     parallax(1, "old/Textures/parallax/city/1.webp")
-
-        jQuery(window).trigger('resize').trigger('scroll');
-    print("desktop")
+    jQuery(window).trigger('resize').trigger('scroll');
 
 } else { 
     //we are on mobile
     $('main').style.background = "auto";
-    print("Mobile")
 }
